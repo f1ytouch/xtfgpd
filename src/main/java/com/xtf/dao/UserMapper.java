@@ -7,6 +7,8 @@ import com.xtf.po.UserQueryVo;
 import java.util.List;
 
 public interface UserMapper {
+
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
@@ -19,5 +21,6 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;
+
+
 }

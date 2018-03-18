@@ -5,8 +5,6 @@
   Time: 21:48
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -45,7 +43,6 @@
             <div class="col-md-6 col-md-offset-3" >
                 <button type="submit" id="subBon" class="btn bg-info">登录</button>
                 <button type="reset" id="resBon" class="btn bg-danger">重置</button>
-                <a href="${pageContext.request.contextPath }/user/listUser.do.do">特权用户</a>
             </div>
         </div>
 

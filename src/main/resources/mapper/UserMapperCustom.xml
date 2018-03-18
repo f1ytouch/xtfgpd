@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xtf.dao.UserMapperCustom">
+
+    <!-- 商品查询的sql片段
+    建议是以单表为单位定义查询条件
+    建议将常用的查询条件都写出来
+     -->
+    <sql id="query_items_where">
+        <if test="userCustom!=null">
+            <if test="userCustom.name!=null and userCustom.name!=''">
+                and  name like '%${userCustom.name}%'
+            </if>
+            <if test="userCustom.id!=null">
+                and  id = #{userCustom.id}
+            </if>
+
+        </if>
+
+    </sql>
+
+    <!-- 商品查询
+    parameterType：输入 查询条件
+    -->
+
+    <select id="findUserList" parameterType="com.xtf.po.UserQueryVo"
+            resultType="com.xtf.po.UserCustom">
+        SELECT * FROM USER
+        <where>
+            <include refid="query_items_where"/>
+        </where>
+    </select>
+
+</mapper>
