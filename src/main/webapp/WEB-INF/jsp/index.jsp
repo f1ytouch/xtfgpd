@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <form id="loginForm" action="check.jsp" method="post" class="form-horizontal">
+    <form id="loginForm" action="login.do" method="post" class="form-horizontal">
 
         <legend> <label ><span class="glyphicon glyphicon-user"></span>&nbsp;用户登录</label></legend>
 
