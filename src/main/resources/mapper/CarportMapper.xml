@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.CarportMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Carport" >
+    <id column="carport_id" property="carportId" jdbcType="INTEGER" />
+    <result column="carport_num" property="carportNum" jdbcType="INTEGER" />
+    <result column="carport_type" property="carportType" jdbcType="VARCHAR" />
+    <result column="carport_area" property="carportArea" jdbcType="VARCHAR" />
+    <result column="carport_platenum" property="carportPlatenum" jdbcType="VARCHAR" />
+    <result column="carport_usedate" property="carportUsedate" jdbcType="VARCHAR" />
+    <result column="carport_stopdate" property="carportStopdate" jdbcType="VARCHAR" />
+    <result column="carport_cellphone" property="carportCellphone" jdbcType="VARCHAR" />
+    <result column="carport_cost" property="carportCost" jdbcType="REAL" />
+    <result column="carport_remark" property="carportRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    carport_id, carport_num, carport_type, carport_area, carport_platenum, carport_usedate, 
+    carport_stopdate, carport_cellphone, carport_cost, carport_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from carport
+    where carport_id = #{carportId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from carport
+    where carport_id = #{carportId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Carport" >
+    insert into carport (carport_id, carport_num, carport_type, 
+      carport_area, carport_platenum, carport_usedate, 
+      carport_stopdate, carport_cellphone, carport_cost, 
+      carport_remark)
+    values (#{carportId,jdbcType=INTEGER}, #{carportNum,jdbcType=INTEGER}, #{carportType,jdbcType=VARCHAR}, 
+      #{carportArea,jdbcType=VARCHAR}, #{carportPlatenum,jdbcType=VARCHAR}, #{carportUsedate,jdbcType=VARCHAR}, 
+      #{carportStopdate,jdbcType=VARCHAR}, #{carportCellphone,jdbcType=VARCHAR}, #{carportCost,jdbcType=REAL}, 
+      #{carportRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Carport" >
+    insert into carport
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carportId != null" >
+        carport_id,
+      </if>
+      <if test="carportNum != null" >
+        carport_num,
+      </if>
+      <if test="carportType != null" >
+        carport_type,
+      </if>
+      <if test="carportArea != null" >
+        carport_area,
+      </if>
+      <if test="carportPlatenum != null" >
+        carport_platenum,
+      </if>
+      <if test="carportUsedate != null" >
+        carport_usedate,
+      </if>
+      <if test="carportStopdate != null" >
+        carport_stopdate,
+      </if>
+      <if test="carportCellphone != null" >
+        carport_cellphone,
+      </if>
+      <if test="carportCost != null" >
+        carport_cost,
+      </if>
+      <if test="carportRemark != null" >
+        carport_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carportId != null" >
+        #{carportId,jdbcType=INTEGER},
+      </if>
+      <if test="carportNum != null" >
+        #{carportNum,jdbcType=INTEGER},
+      </if>
+      <if test="carportType != null" >
+        #{carportType,jdbcType=VARCHAR},
+      </if>
+      <if test="carportArea != null" >
+        #{carportArea,jdbcType=VARCHAR},
+      </if>
+      <if test="carportPlatenum != null" >
+        #{carportPlatenum,jdbcType=VARCHAR},
+      </if>
+      <if test="carportUsedate != null" >
+        #{carportUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="carportStopdate != null" >
+        #{carportStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="carportCellphone != null" >
+        #{carportCellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="carportCost != null" >
+        #{carportCost,jdbcType=REAL},
+      </if>
+      <if test="carportRemark != null" >
+        #{carportRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Carport" >
+    update carport
+    <set >
+      <if test="carportNum != null" >
+        carport_num = #{carportNum,jdbcType=INTEGER},
+      </if>
+      <if test="carportType != null" >
+        carport_type = #{carportType,jdbcType=VARCHAR},
+      </if>
+      <if test="carportArea != null" >
+        carport_area = #{carportArea,jdbcType=VARCHAR},
+      </if>
+      <if test="carportPlatenum != null" >
+        carport_platenum = #{carportPlatenum,jdbcType=VARCHAR},
+      </if>
+      <if test="carportUsedate != null" >
+        carport_usedate = #{carportUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="carportStopdate != null" >
+        carport_stopdate = #{carportStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="carportCellphone != null" >
+        carport_cellphone = #{carportCellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="carportCost != null" >
+        carport_cost = #{carportCost,jdbcType=REAL},
+      </if>
+      <if test="carportRemark != null" >
+        carport_remark = #{carportRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where carport_id = #{carportId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Carport" >
+    update carport
+    set carport_num = #{carportNum,jdbcType=INTEGER},
+      carport_type = #{carportType,jdbcType=VARCHAR},
+      carport_area = #{carportArea,jdbcType=VARCHAR},
+      carport_platenum = #{carportPlatenum,jdbcType=VARCHAR},
+      carport_usedate = #{carportUsedate,jdbcType=VARCHAR},
+      carport_stopdate = #{carportStopdate,jdbcType=VARCHAR},
+      carport_cellphone = #{carportCellphone,jdbcType=VARCHAR},
+      carport_cost = #{carportCost,jdbcType=REAL},
+      carport_remark = #{carportRemark,jdbcType=VARCHAR}
+    where carport_id = #{carportId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findListCarport" parameterType="com.xtf.po.Carport" resultMap="BaseResultMap">
+    select * from carport
+  </select>
+</mapper>

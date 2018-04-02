@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Employee" >
+    <id column="employee_id" property="employeeId" jdbcType="INTEGER" />
+    <result column="employee_name" property="employeeName" jdbcType="VARCHAR" />
+    <result column="employee_sex" property="employeeSex" jdbcType="CHAR" />
+    <result column="employee_idcard" property="employeeIdcard" jdbcType="VARCHAR" />
+    <result column="employee_origo" property="employeeOrigo" jdbcType="VARCHAR" />
+    <result column="employee_address" property="employeeAddress" jdbcType="VARCHAR" />
+    <result column="employee_education" property="employeeEducation" jdbcType="VARCHAR" />
+    <result column="employee_hiredate" property="employeeHiredate" jdbcType="TIMESTAMP" />
+    <result column="employee_leavedate" property="employeeLeavedate" jdbcType="TIMESTAMP" />
+    <result column="employee_station" property="employeeStation" jdbcType="VARCHAR" />
+    <result column="employee_state" property="employeeState" jdbcType="VARCHAR" />
+    <result column="employee_rfl" property="employeeRfl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    employee_id, employee_name, employee_sex, employee_idcard, employee_origo, employee_address, 
+    employee_education, employee_hiredate, employee_leavedate, employee_station, employee_state, 
+    employee_rfl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </select>
+
+  <select id="findListEmployee" resultMap="BaseResultMap">
+    select * from employee
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employee
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Employee" >
+    insert into employee (employee_id, employee_name, employee_sex, 
+      employee_idcard, employee_origo, employee_address, 
+      employee_education, employee_hiredate, 
+      employee_leavedate, employee_station, employee_state, 
+      employee_rfl)
+    values (#{employeeId,jdbcType=INTEGER}, #{employeeName,jdbcType=VARCHAR}, #{employeeSex,jdbcType=CHAR}, 
+      #{employeeIdcard,jdbcType=VARCHAR}, #{employeeOrigo,jdbcType=VARCHAR}, #{employeeAddress,jdbcType=VARCHAR}, 
+      #{employeeEducation,jdbcType=VARCHAR}, #{employeeHiredate,jdbcType=TIMESTAMP}, 
+      #{employeeLeavedate,jdbcType=TIMESTAMP}, #{employeeStation,jdbcType=VARCHAR}, #{employeeState,jdbcType=VARCHAR}, 
+      #{employeeRfl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Employee" >
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeeId != null" >
+        employee_id,
+      </if>
+      <if test="employeeName != null" >
+        employee_name,
+      </if>
+      <if test="employeeSex != null" >
+        employee_sex,
+      </if>
+      <if test="employeeIdcard != null" >
+        employee_idcard,
+      </if>
+      <if test="employeeOrigo != null" >
+        employee_origo,
+      </if>
+      <if test="employeeAddress != null" >
+        employee_address,
+      </if>
+      <if test="employeeEducation != null" >
+        employee_education,
+      </if>
+      <if test="employeeHiredate != null" >
+        employee_hiredate,
+      </if>
+      <if test="employeeLeavedate != null" >
+        employee_leavedate,
+      </if>
+      <if test="employeeStation != null" >
+        employee_station,
+      </if>
+      <if test="employeeState != null" >
+        employee_state,
+      </if>
+      <if test="employeeRfl != null" >
+        employee_rfl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeeId != null" >
+        #{employeeId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeName != null" >
+        #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeSex != null" >
+        #{employeeSex,jdbcType=CHAR},
+      </if>
+      <if test="employeeIdcard != null" >
+        #{employeeIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeOrigo != null" >
+        #{employeeOrigo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeAddress != null" >
+        #{employeeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeEducation != null" >
+        #{employeeEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeHiredate != null" >
+        #{employeeHiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeLeavedate != null" >
+        #{employeeLeavedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeStation != null" >
+        #{employeeStation,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeState != null" >
+        #{employeeState,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeRfl != null" >
+        #{employeeRfl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Employee" >
+    update employee
+    <set >
+      <if test="employeeName != null" >
+        employee_name = #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeSex != null" >
+        employee_sex = #{employeeSex,jdbcType=CHAR},
+      </if>
+      <if test="employeeIdcard != null" >
+        employee_idcard = #{employeeIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeOrigo != null" >
+        employee_origo = #{employeeOrigo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeAddress != null" >
+        employee_address = #{employeeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeEducation != null" >
+        employee_education = #{employeeEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeHiredate != null" >
+        employee_hiredate = #{employeeHiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeLeavedate != null" >
+        employee_leavedate = #{employeeLeavedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeStation != null" >
+        employee_station = #{employeeStation,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeState != null" >
+        employee_state = #{employeeState,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeRfl != null" >
+        employee_rfl = #{employeeRfl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Employee" >
+    update employee
+    set employee_name = #{employeeName,jdbcType=VARCHAR},
+      employee_sex = #{employeeSex,jdbcType=CHAR},
+      employee_idcard = #{employeeIdcard,jdbcType=VARCHAR},
+      employee_origo = #{employeeOrigo,jdbcType=VARCHAR},
+      employee_address = #{employeeAddress,jdbcType=VARCHAR},
+      employee_education = #{employeeEducation,jdbcType=VARCHAR},
+      employee_hiredate = #{employeeHiredate,jdbcType=TIMESTAMP},
+      employee_leavedate = #{employeeLeavedate,jdbcType=TIMESTAMP},
+      employee_station = #{employeeStation,jdbcType=VARCHAR},
+      employee_state = #{employeeState,jdbcType=VARCHAR},
+      employee_rfl = #{employeeRfl,jdbcType=VARCHAR}
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </update>
+</mapper>

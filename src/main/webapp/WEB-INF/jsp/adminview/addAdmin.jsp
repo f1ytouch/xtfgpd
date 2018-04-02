@@ -28,7 +28,7 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+			<li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
 		</ul>
 	</div>
 </nav>

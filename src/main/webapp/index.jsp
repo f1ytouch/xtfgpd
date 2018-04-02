@@ -20,36 +20,43 @@
     <script src="bootstrap/login.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-    <form id="loginForm" action="check.jsp" method="post" class="form-horizontal">
-
-        <legend> <label ><span class="glyphicon glyphicon-user"></span>&nbsp;用户登录</label></legend>
-
-        <div class="form-group" id="midDiv">
-            <label class="col-md-3" for="mid" >用户名：</label>
-            <div class="col-md-5">
-                <input class="form-control" type="text" id="mid" name="mid" placeholder="请输入登录名">
-            </div>
-            <div class="col-md-4" id="midSpan"></div>
+<div class="container">
+    <div class="panel panel-success " style="width: 50%;">
+        <div class="panel-heading">
+            <h3 class="col-md-offset-3 panel-title "><span class="glyphicon glyphicon-user"></span>&nbsp;用户登录</h3>
         </div>
+        <div class="panel-body">
+            <form id="loginForm" action="login.do" method="post" class="form-horizontal">
+                <div class="form-group" id="midDiv">
+                    <label class="col-md-3 control-label" for="mid" >用户名：</label>
+                    <div class="col-md-5">
+                        <input class="form-control" type="text" id="mid" name="mid" placeholder="请输入登录名">
+                    </div>
+                    <div class="col-md-4" id="midSpan"></div>
+                </div>
 
-        <div class="form-group" id="passwordDiv">
-            <label class="col-md-3" for="password" >用户名：</label>
-            <div class="col-md-5">
-                <input class="form-control" type="password" id="password" name="password" placeholder="请输入密码">
-            </div>
-            <div class="col-md-4" id="passwordSpan"></div>
+                <div class="form-group" id="passwordDiv">
+                    <label class="col-md-3 control-label" for="password" >密码：</label>
+                    <div class="col-md-5">
+                        <input class="form-control" type="password" id="password" name="password" placeholder="请输入密码">
+                    </div>
+                    <div class="col-md-4" id="passwordSpan"></div>
+                </div>
+
+                <div class="form-group" id="butDiv">
+                    <div class="col-md-6 col-md-offset-3" >
+                        <button type="submit" id="subBon" class="btn bg-info">登录</button>
+                        <button type="reset" id="resBon" class="btn bg-danger">重置</button>
+                        <%--<a href="${pageContext.request.contextPath }"></a>--%>
+                    </div>
+                </div>
+
+                <span id="tip"></span>
+
+            </form>
         </div>
+    </div>
 
-        <div class="form-group" id="butDiv">
-            <div class="col-md-6 col-md-offset-3" >
-                <button type="submit" id="subBon" class="btn bg-info">登录</button>
-                <button type="reset" id="resBon" class="btn bg-danger">重置</button>
-                <a href="${pageContext.request.contextPath }/user/listUser.do.do">特权用户</a>
-            </div>
-        </div>
-
-    </form>
 </div>
 </body>
 </html>

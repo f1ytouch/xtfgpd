@@ -25,37 +25,36 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserCustom findUserById(Integer id) {
-
-        User  user = userMapper.selectByPrimaryKey(id);
-
+        User user = userMapper.selectByPrimaryKey(id);
         UserCustom userCustom = new UserCustom();
-
         BeanUtils.copyProperties(user, userCustom);
-
         return userCustom;
     }
 
     @Override
     public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception {
-
         List<UserCustom> list = new ArrayList<UserCustom>();
-
-        UserCustom userCustom = new UserCustom();
-
-        UserQueryVo userQueryVo1 = new UserQueryVo();
-
-        userQueryVo1.setUserCustom(userCustom);
-
-        list = userMapperCustom.findUserList(userQueryVo1);
-
+//        UserCustom userCustom = new UserCustom();
+//        UserQueryVo userQueryVo1 = new UserQueryVo();
+//        userQueryVo1.setUserCustom(userCustom);
+        list = userMapperCustom.findUserList(userQueryVo);
         return list;
     }
 
     @Override
     public void updateUser(Integer id, UserCustom userCustom) throws Exception {
-
         userMapper.updateByPrimaryKeySelective(userCustom);
 
+    }
+
+    @Override
+    public void deletUser(Integer id) {
+        userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void insertUser(UserCustom userCustom) throws Exception {
+        userMapper.insertSelective(userCustom);
     }
 
     public void setUserMapper(UserMapper userMapper) {

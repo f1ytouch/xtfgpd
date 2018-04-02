@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.RepairsMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Repairs" >
+    <id column="repairs_id" property="repairsId" jdbcType="INTEGER" />
+    <result column="repairs_num" property="repairsNum" jdbcType="INTEGER" />
+    <result column="repairs_details" property="repairsDetails" jdbcType="VARCHAR" />
+    <result column="repairs_startime" property="repairsStartime" jdbcType="VARCHAR" />
+    <result column="repairs_plan" property="repairsPlan" jdbcType="VARCHAR" />
+    <result column="repairs_cost" property="repairsCost" jdbcType="REAL" />
+    <result column="repairs_paystate" property="repairsPaystate" jdbcType="VARCHAR" />
+    <result column="repairs_remark" property="repairsRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    repairs_id, repairs_num, repairs_details, repairs_startime, repairs_plan, repairs_cost, 
+    repairs_paystate, repairs_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from repairs
+    where repairs_id = #{repairsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from repairs
+    where repairs_id = #{repairsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Repairs" >
+    insert into repairs (repairs_id, repairs_num, repairs_details, 
+      repairs_startime, repairs_plan, repairs_cost, 
+      repairs_paystate, repairs_remark)
+    values (#{repairsId,jdbcType=INTEGER}, #{repairsNum,jdbcType=INTEGER}, #{repairsDetails,jdbcType=VARCHAR}, 
+      #{repairsStartime,jdbcType=VARCHAR}, #{repairsPlan,jdbcType=VARCHAR}, #{repairsCost,jdbcType=REAL}, 
+      #{repairsPaystate,jdbcType=VARCHAR}, #{repairsRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Repairs" >
+    insert into repairs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="repairsId != null" >
+        repairs_id,
+      </if>
+      <if test="repairsNum != null" >
+        repairs_num,
+      </if>
+      <if test="repairsDetails != null" >
+        repairs_details,
+      </if>
+      <if test="repairsStartime != null" >
+        repairs_startime,
+      </if>
+      <if test="repairsPlan != null" >
+        repairs_plan,
+      </if>
+      <if test="repairsCost != null" >
+        repairs_cost,
+      </if>
+      <if test="repairsPaystate != null" >
+        repairs_paystate,
+      </if>
+      <if test="repairsRemark != null" >
+        repairs_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="repairsId != null" >
+        #{repairsId,jdbcType=INTEGER},
+      </if>
+      <if test="repairsNum != null" >
+        #{repairsNum,jdbcType=INTEGER},
+      </if>
+      <if test="repairsDetails != null" >
+        #{repairsDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsStartime != null" >
+        #{repairsStartime,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsPlan != null" >
+        #{repairsPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsCost != null" >
+        #{repairsCost,jdbcType=REAL},
+      </if>
+      <if test="repairsPaystate != null" >
+        #{repairsPaystate,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsRemark != null" >
+        #{repairsRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Repairs" >
+    update repairs
+    <set >
+      <if test="repairsNum != null" >
+        repairs_num = #{repairsNum,jdbcType=INTEGER},
+      </if>
+      <if test="repairsDetails != null" >
+        repairs_details = #{repairsDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsStartime != null" >
+        repairs_startime = #{repairsStartime,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsPlan != null" >
+        repairs_plan = #{repairsPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsCost != null" >
+        repairs_cost = #{repairsCost,jdbcType=REAL},
+      </if>
+      <if test="repairsPaystate != null" >
+        repairs_paystate = #{repairsPaystate,jdbcType=VARCHAR},
+      </if>
+      <if test="repairsRemark != null" >
+        repairs_remark = #{repairsRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where repairs_id = #{repairsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Repairs" >
+    update repairs
+    set repairs_num = #{repairsNum,jdbcType=INTEGER},
+      repairs_details = #{repairsDetails,jdbcType=VARCHAR},
+      repairs_startime = #{repairsStartime,jdbcType=VARCHAR},
+      repairs_plan = #{repairsPlan,jdbcType=VARCHAR},
+      repairs_cost = #{repairsCost,jdbcType=REAL},
+      repairs_paystate = #{repairsPaystate,jdbcType=VARCHAR},
+      repairs_remark = #{repairsRemark,jdbcType=VARCHAR}
+    where repairs_id = #{repairsId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectListRep" parameterType="com.xtf.po.Repairs" resultMap="BaseResultMap">
+    select * from repairs
+  </select>
+
+</mapper>

@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: ixuc
+  Date: 2018/2/5
+  Time: 21:48
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -25,12 +32,15 @@
 				<li class="active"><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
 
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+			<li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
 		</ul>
 	</div>
 </nav>
@@ -66,7 +76,7 @@
 
 					<c:forEach items="${userList }" var="item">
 						<tr>
-							<td>${item.phone }</td>
+							<td>${item.num }</td>
 							<td>${item.username}</td>
 							<td>${item.idcard }</td>
 							<td><fmt:formatDate value="${item.regtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>

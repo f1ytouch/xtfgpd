@@ -6,55 +6,82 @@
 <html>
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
 <title>员工列表</title>
 </head>
-<body> 
+<body>
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">物业收费管理系统</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
+
+			</ul>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
+			<li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+		</ul>
+	</div>
+</nav>
+
 <form action="${pageContext.request.contextPath }" method="post">
-查询条件：
-
-<table width="100%" border=1>
-	<tr>
-		<td><a href="${pageContext.request.contextPath }/addEmployee.do">添加员工</a></td>
-	</tr>
-</table>
-	<table width="100%" border=1>
-		<tr>
-			<td><a href="${pageContext.request.contextPath }">查询</a></td>
-		</tr>
-	</table>
-商品列表：
-<table width="100%" border=1>
-<tr><td>员工编号</td>
-	<td>员工姓名</td>
-	<td>性别</td>
-	<td>工种</td>
-	<td>在职状态</td>
-	<td>操作</td>
 
 
-</tr>
-<c:forEach items="${emp }" var="item">
-<tr>
-	<td>${item.employeeId }</td>
-	<td>${item.employeeName }</td>
-	<td>${item.employeeSex}</td>
-	<td>${item.employeeStation }</td>
-	<td>${item.employeeState }</td>
+	<div class="container">
+		<table class="table table-striped table-bordered table-hover table-condensed">
+			<tr>
+				<td><a href="${pageContext.request.contextPath }/addEmployee.do">添加员工</a></td>
+			</tr>
+		</table>
 
-	
-	<%--<td><a href="${pageContext.request.contextPath }/items/editItems.action?id=${item.id}">修改</a></td>--%>
-	<%--<td><a href="${pageContext.request.contextPath }/user/viewUser/${item.id}">详情</a></td>--%>
-	<td><a href="${pageContext.request.contextPath }/editEmployee.do?id=${item.employeeId}">修改</a></td>
-	<td><a href="${pageContext.request.contextPath }/deleteEmployee.do?id=${item.employeeId}">删除</a></td>
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">员工列表</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped table-bordered table-hover table-condensed">
+					<thead>
+					<tr>
+						<th>员工编号</th>
+						<th>员工姓名</th>
+						<th>性别</th>
+						<th>工种</th>
+						<th>在职状态</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody>
 
-</tr>
-</c:forEach>
-</table>
+					<c:forEach items="${emp }" var="item">
+						<tr>
+							<td>${item.employeeId }</td>
+							<td>${item.employeeName }</td>
+							<td>${item.employeeSex}</td>
+							<td>${item.employeeStation }</td>
+							<td>${item.employeeState }</td>
+							<td><a href="${pageContext.request.contextPath }/editEmployee.do?id=${item.employeeId}">修改</a></td>
+							<td><a href="${pageContext.request.contextPath }/deleteEmployee.do?id=${item.employeeId}">删除</a></td>
+
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </form>
 </body>
 

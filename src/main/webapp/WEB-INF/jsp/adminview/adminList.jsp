@@ -24,12 +24,15 @@
 				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
 
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+			<li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
 		</ul>
 	</div>
 </nav>

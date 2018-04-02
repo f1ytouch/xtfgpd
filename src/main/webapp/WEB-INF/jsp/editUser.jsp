@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: ixuc
+  Date: 2018/2/5
+  Time: 21:48
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -29,7 +36,7 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+			<li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
 		</ul>
 	</div>
 </nav>
@@ -45,7 +52,7 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">门牌号</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="phone" value="${item.phone }" placeholder="门牌号">
+						<input type="text" class="form-control" name="num" value="${item.num }" placeholder="门牌号">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

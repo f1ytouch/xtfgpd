@@ -6,6 +6,7 @@ public class UserQueryVo {
     private UserCustom userCustom;
 
     public void setUserCustom(UserCustom userCustom) {
+
         this.userCustom = userCustom;
     }
 

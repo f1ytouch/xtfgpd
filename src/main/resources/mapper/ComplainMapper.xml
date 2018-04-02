@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.ComplainMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Complain" >
+    <id column="complain_id" property="complainId" jdbcType="INTEGER" />
+    <result column="complain_num" property="complainNum" jdbcType="INTEGER" />
+    <result column="complain_name" property="complainName" jdbcType="VARCHAR" />
+    <result column="complain_details" property="complainDetails" jdbcType="VARCHAR" />
+    <result column="complain_time" property="complainTime" jdbcType="VARCHAR" />
+    <result column="complain_receiver" property="complainReceiver" jdbcType="VARCHAR" />
+    <result column="complain_cellphone" property="complainCellphone" jdbcType="VARCHAR" />
+    <result column="complain_state" property="complainState" jdbcType="VARCHAR" />
+    <result column="complain_remark" property="complainRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    complain_id, complain_num, complain_name, complain_details, complain_time, complain_receiver, 
+    complain_cellphone, complain_state, complain_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from complain
+    where complain_id = #{complainId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from complain
+    where complain_id = #{complainId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Complain" >
+    insert into complain (complain_id, complain_num, complain_name, 
+      complain_details, complain_time, complain_receiver, 
+      complain_cellphone, complain_state, complain_remark
+      )
+    values (#{complainId,jdbcType=INTEGER}, #{complainNum,jdbcType=INTEGER}, #{complainName,jdbcType=VARCHAR}, 
+      #{complainDetails,jdbcType=VARCHAR}, #{complainTime,jdbcType=VARCHAR}, #{complainReceiver,jdbcType=VARCHAR}, 
+      #{complainCellphone,jdbcType=VARCHAR}, #{complainState,jdbcType=VARCHAR}, #{complainRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Complain" >
+    insert into complain
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="complainId != null" >
+        complain_id,
+      </if>
+      <if test="complainNum != null" >
+        complain_num,
+      </if>
+      <if test="complainName != null" >
+        complain_name,
+      </if>
+      <if test="complainDetails != null" >
+        complain_details,
+      </if>
+      <if test="complainTime != null" >
+        complain_time,
+      </if>
+      <if test="complainReceiver != null" >
+        complain_receiver,
+      </if>
+      <if test="complainCellphone != null" >
+        complain_cellphone,
+      </if>
+      <if test="complainState != null" >
+        complain_state,
+      </if>
+      <if test="complainRemark != null" >
+        complain_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="complainId != null" >
+        #{complainId,jdbcType=INTEGER},
+      </if>
+      <if test="complainNum != null" >
+        #{complainNum,jdbcType=INTEGER},
+      </if>
+      <if test="complainName != null" >
+        #{complainName,jdbcType=VARCHAR},
+      </if>
+      <if test="complainDetails != null" >
+        #{complainDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTime != null" >
+        #{complainTime,jdbcType=VARCHAR},
+      </if>
+      <if test="complainReceiver != null" >
+        #{complainReceiver,jdbcType=VARCHAR},
+      </if>
+      <if test="complainCellphone != null" >
+        #{complainCellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="complainState != null" >
+        #{complainState,jdbcType=VARCHAR},
+      </if>
+      <if test="complainRemark != null" >
+        #{complainRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Complain" >
+    update complain
+    <set >
+      <if test="complainNum != null" >
+        complain_num = #{complainNum,jdbcType=INTEGER},
+      </if>
+      <if test="complainName != null" >
+        complain_name = #{complainName,jdbcType=VARCHAR},
+      </if>
+      <if test="complainDetails != null" >
+        complain_details = #{complainDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTime != null" >
+        complain_time = #{complainTime,jdbcType=VARCHAR},
+      </if>
+      <if test="complainReceiver != null" >
+        complain_receiver = #{complainReceiver,jdbcType=VARCHAR},
+      </if>
+      <if test="complainCellphone != null" >
+        complain_cellphone = #{complainCellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="complainState != null" >
+        complain_state = #{complainState,jdbcType=VARCHAR},
+      </if>
+      <if test="complainRemark != null" >
+        complain_remark = #{complainRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where complain_id = #{complainId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Complain" >
+    update complain
+    set complain_num = #{complainNum,jdbcType=INTEGER},
+      complain_name = #{complainName,jdbcType=VARCHAR},
+      complain_details = #{complainDetails,jdbcType=VARCHAR},
+      complain_time = #{complainTime,jdbcType=VARCHAR},
+      complain_receiver = #{complainReceiver,jdbcType=VARCHAR},
+      complain_cellphone = #{complainCellphone,jdbcType=VARCHAR},
+      complain_state = #{complainState,jdbcType=VARCHAR},
+      complain_remark = #{complainRemark,jdbcType=VARCHAR}
+    where complain_id = #{complainId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findListCompain" parameterType="com.xtf.po.Complain" resultMap="BaseResultMap">
+    select * from complain
+  </select>
+
+</mapper>

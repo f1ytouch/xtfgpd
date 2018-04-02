@@ -1,24 +1,18 @@
 package com.xtf.controller;
 
-import com.xtf.po.User;
-
 import com.xtf.po.UserCustom;
 import com.xtf.po.UserQueryVo;
 import com.xtf.service.UserService;
-import com.xtf.service.impl.UserServiceImpl;
+import com.xtf.utils.RequireAuth;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/user")
@@ -28,71 +22,97 @@ public class UserController  {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/List.do")
-    public String toIndex() {
-        return "/itemsList";
+    @RequireAuth
+    @RequestMapping("/addUser.do")
+    public String editUser() throws Exception {
+        return "/addUser";
     }
 
-
-    @RequestMapping("editU")
-    public String toeditU() {
-        return "/editItem";
-    }
-
-    @RequestMapping("listU")
-    public String tolistU() {
-        return "/listbrand";
-    }
-
-
-
-
+    @RequireAuth
     @RequestMapping("/listUser.do")
-    public String listUser(Model model) throws Exception {
-
-
-
+    public String listUser(Model model,String username,UserCustom userCustom) throws Exception {
         List<UserCustom> userList = new ArrayList<>();
-
-        UserCustom userCustom = new UserCustom();
-//            userCustom.setUsername("李四");
-
+//        UserCustom userCustom = new UserCustom();
         UserQueryVo userQueryVo = new UserQueryVo();
-
         userQueryVo.setUserCustom(userCustom);
-
         userList = userService.findUserList(userQueryVo);
-
         model.addAttribute("userList",userList);
-
-        return "/itemsList";
+        return "/userList";
     }
 
-    @RequestMapping("/editUser")
+    //按姓名模糊查询
+    @RequestMapping("/searchUser.do")
+    public String searchUser(Model model,String username) throws Exception {
+        List<UserCustom> userList = new ArrayList<>();
+        UserCustom userCustom = new UserCustom();
+        userCustom.setUsername(username);
+        UserQueryVo userQueryVo = new UserQueryVo();
+        userQueryVo.setUserCustom(userCustom);
+        userList = userService.findUserList(userQueryVo);
+        model.addAttribute("userList",userList);
+        return "/userList";
+    }
+
+    @RequestMapping("/search.do")
+    public String search(Model model, String username) throws Exception {
+        return "/search";
+    }
+
+    //根据商品id查看商品信息rest接口
+    //@RequestMapping指定resful方法的url中的参数，参数要用{}包起来
+    //@PathVariable将url的{}包起来的参数与形参进行绑定
+    @RequestMapping("/viewUser/{id}")
+    public @ResponseBody
+    UserCustom viewUser(@PathVariable("id") Integer id) throws Exception {
+        UserCustom userCustom = userService.findUserById(id);
+        return userCustom;
+    }
+
+    @RequireAuth
+    @RequestMapping("/editUser.do")
     public String edititem(Model model,Integer id) throws Exception {
-
         UserCustom userCustom = (UserCustom) userService.findUserById(id);
-
         model.addAttribute("item",userCustom);
-
-        return "/editItem";
+        return "/editUser";
     }
 
-    @RequestMapping("/editUserSubmit")
-    public String editUserSubmit(Integer id, UserCustom userCustom) throws Exception {
-
+    @RequireAuth
+    @RequestMapping("/editUserSubmit.do")
+    public String editUserSubmit( Model model, Integer id,
+                                  @ModelAttribute(value = "item") UserCustom userCustom) throws Exception {
         userService.updateUser(id,userCustom);
-
+//        model.addAttribute("item", userCustom);
         return "redirect:listUser.do";
     }
 
-    public UserService getUserService() {
+    @RequireAuth
+    @RequestMapping("/deleteUser.do")
+    public String deletUserById(Integer id) throws Exception {
+        userService.deletUser(id);
+        return "redirect:listUser.do";
 
+    }
+
+    @RequireAuth
+    @RequestMapping("/insertUser.do")
+    public String insertUserByCustom(UserCustom userCustom) throws Exception {
+        userService.insertUser(userCustom);
+        return "redirect:listUser.do";
+    }
+
+    @ModelAttribute("itemsType")
+    public Map<String, String> getItemsType() throws Exception {
+        HashMap<String, String> itemsType = new HashMap<String, String>();
+        itemsType.put("001", "姓名");
+        itemsType.put("002", "年龄");
+        return itemsType;
+    }
+
+    public UserService getUserService() {
         return userService;
     }
 
     public void setUserService(UserService userService) {
-
         this.userService = userService;
     }
 }
