@@ -31,10 +31,17 @@ public class AdminController {
         map.put("adminname", mid);
         map.put("adminpwd", password);
         Admin admin = adminService.selectByNameAndPWD(map);
+        int roleid = admin.getRoleid();
 
         if (admin == null) {
             return "/index";
         }
+
+        if (roleid == 0) {
+            session.setAttribute("admin",admin);
+            return "/error";
+        }
+
         session.setAttribute("admin",admin);
         return "/mainpage";
     }

@@ -30,6 +30,9 @@
                 <li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/listProperty.do">物业收费信息管理</a></li>
 
             </ul>
         </div>
