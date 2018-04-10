@@ -39,7 +39,7 @@ public class AdminController {
 
         if (roleid == 0) {
             session.setAttribute("admin",admin);
-            return "/error";
+            return "/userpage";
         }
 
         session.setAttribute("admin",admin);
@@ -55,7 +55,14 @@ public class AdminController {
     //返回首页
     @RequestMapping("/mainpage.do")
     public String mainpage() {
+
         return "/mainpage";
+    }
+
+    @RequestMapping("/userpage.do")
+    public String userpage() {
+
+        return "/userpage";
     }
 
     //显示系统用户列表

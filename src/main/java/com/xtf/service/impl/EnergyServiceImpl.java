@@ -56,4 +56,11 @@ public class EnergyServiceImpl implements EnergyService {
         list = energyMapper.selectListEnergy(record);
         return list;
     }
+
+    @Override
+    public List<Energy> selectByEnergyNum(Integer energyNum) {
+        List<Energy> list = new ArrayList<>();
+        list = energyMapper.selectByEnergyNum(energyNum);
+        return list;
+    }
 }

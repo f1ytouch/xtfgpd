@@ -21,10 +21,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="#">业主信息管理</a></li>
-				<li class="active"><a href="#">员工信息管理</a></li>
-				<li><a href="#">系统用户信息管理</a></li>
-
+				<li class="active"><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
@@ -62,27 +59,27 @@
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">维修进度</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsPlan" value="${item.repairsPlan }" placeholder="维修进度">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">费用</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsCost" value="${item.repairsCost }" placeholder="费用">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">支付状态</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsPaystate" value="${item.repairsPaystate }" placeholder="支付状态">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
+				<%--<div class="form-group">--%>
+					<%--<label  class="col-sm-2 control-label">维修进度</label>--%>
+					<%--<div class="col-sm-6">--%>
+						<%--<input type="text" class="form-control" name="repairsPlan" value="${item.repairsPlan }" placeholder="维修进度">--%>
+					<%--</div>--%>
+					<%--<span class="col-sm-4"></span>--%>
+				<%--</div>--%>
+				<%--<div class="form-group">--%>
+					<%--<label  class="col-sm-2 control-label">费用</label>--%>
+					<%--<div class="col-sm-6">--%>
+						<%--<input type="text" class="form-control" name="repairsCost" value="${item.repairsCost }" placeholder="费用">--%>
+					<%--</div>--%>
+					<%--<span class="col-sm-4"></span>--%>
+				<%--</div>--%>
+				<%--<div class="form-group">--%>
+					<%--<label  class="col-sm-2 control-label">支付状态</label>--%>
+					<%--<div class="col-sm-6">--%>
+						<%--<input type="text" class="form-control" name="repairsPaystate" value="${item.repairsPaystate }" placeholder="支付状态">--%>
+					<%--</div>--%>
+					<%--<span class="col-sm-4"></span>--%>
+				<%--</div>--%>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">备注</label>
 					<div class="col-sm-6">

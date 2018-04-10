@@ -18,4 +18,6 @@ public interface EnergyService {
     int updateByPrimaryKey(Energy record);
 
     List<Energy> selectListEnergy(Energy record);
+
+    List<Energy> selectByEnergyNum(Integer energyNum);
 }

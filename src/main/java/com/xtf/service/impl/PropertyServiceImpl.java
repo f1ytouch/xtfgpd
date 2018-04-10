@@ -56,4 +56,9 @@ public class PropertyServiceImpl implements PropertyService {
         list = propertyMapper.selectListPro(record);
         return list;
     }
+
+    @Override
+    public List<Property> selectByPropertyNum(Integer propertyNum) {
+        return propertyMapper.selectByPropertyNum(propertyNum);
+    }
 }

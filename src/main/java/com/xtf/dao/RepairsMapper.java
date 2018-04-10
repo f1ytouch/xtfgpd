@@ -17,4 +17,6 @@ public interface RepairsMapper {
     int updateByPrimaryKey(Repairs record);
 
     List<Repairs> selectListRep(Repairs repairs);
+
+    List<Repairs> selectByNum(Integer repairsNum);
 }

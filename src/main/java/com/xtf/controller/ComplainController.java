@@ -22,6 +22,14 @@ public class ComplainController {
         return "/complain/listComplain";
     }
 
+    @RequestMapping("/selectBycomplainNum.do")
+    public String selectBycomplainNum(Model model, Integer complainNum) throws Exception {
+        List<Complain> list = complainService.selectBycomplainNum(complainNum);
+        model.addAttribute("complain",list);
+        return "/complain/listComplain";
+    }
+
+
     @RequestMapping("/deleteComplain.do")
     public String deleteComplain(Integer id) throws Exception {
         complainService.deleteByPrimaryKey(id);
@@ -30,6 +38,7 @@ public class ComplainController {
 
     @RequestMapping("/addComplain.do")
     public String addComplain() {
+
         return "/complain/addComplain";
     }
 

@@ -25,6 +25,13 @@ public class RepairsController {
         return "/repairs/listRepairs";
     }
 
+    @RequestMapping("/selectByNum.do")
+    public String selectByNum(Model model, Integer repairsNum) throws Exception {
+        List<Repairs> list = repairsService.selectByNum(repairsNum);
+        model.addAttribute("repairs", list);
+        return "/repairs/listRepairs";
+    }
+
     @RequestMapping("/addRepairs.do")
     public String addRepairs() throws Exception {
         return "/repairs/addRepairs";

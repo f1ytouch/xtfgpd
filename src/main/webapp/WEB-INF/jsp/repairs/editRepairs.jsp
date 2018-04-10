@@ -21,9 +21,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="#">业主信息管理</a></li>
-				<li class="active"><a href="#">员工信息管理</a></li>
-				<li><a href="#">系统用户信息管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 
 			</ul>
 		</div>
@@ -35,7 +33,7 @@
 </nav>
 
 <form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/editRepairsSubmit.do" method="post">
-	<input type="text" name="repairsId" value="${item.repairsId }"/>
+	<input type="hidden" name="repairsId" value="${item.repairsId }"/>
 	<div class="container">
 		<div class="panel panel-success">
 			<div class="panel-heading">

@@ -60,5 +60,10 @@ public class ComplainServiceImpl implements ComplainService {
         return list;
     }
 
+    @Override
+    public List<Complain> selectBycomplainNum(Integer complainNum) {
+        return complainMapper.selectBycomplainNum(complainNum);
+    }
+
 
 }

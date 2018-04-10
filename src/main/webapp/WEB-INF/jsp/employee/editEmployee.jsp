@@ -21,10 +21,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
-
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">

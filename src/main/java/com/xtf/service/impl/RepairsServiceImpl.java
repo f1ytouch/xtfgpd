@@ -53,6 +53,11 @@ public class RepairsServiceImpl implements RepairsService{
     }
 
     @Override
+    public List<Repairs> selectByNum(Integer repairsNum) {
+        return requestMapping.selectByNum(repairsNum);
+    }
+
+    @Override
     public int updateByall(Repairs record) {
         requestMapping.updateByPrimaryKey(record);
         return 0;

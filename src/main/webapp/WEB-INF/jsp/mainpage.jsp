@@ -25,14 +25,22 @@
         <div>
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/listHouse.do">房产信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/listProperty.do">物业收费信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        缴费管理 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
+                        <li><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
+                        <li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </div>

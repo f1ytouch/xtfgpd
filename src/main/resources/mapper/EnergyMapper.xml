@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.EnergyMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Energy" >
+    <id column="energy_id" property="energyId" jdbcType="INTEGER" />
+    <result column="energy_num" property="energyNum" jdbcType="INTEGER" />
+    <result column="energy_unitcost" property="energyUnitcost" jdbcType="REAL" />
+    <result column="energy_sum" property="energySum" jdbcType="REAL" />
+    <result column="energy_usedate" property="energyUsedate" jdbcType="VARCHAR" />
+    <result column="energy_stopdate" property="energyStopdate" jdbcType="VARCHAR" />
+    <result column="energy_state" property="energyState" jdbcType="VARCHAR" />
+    <result column="energy_company" property="energyCompany" jdbcType="VARCHAR" />
+    <result column="energy_remark" property="energyRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    energy_id, energy_num, energy_unitcost, energy_sum, energy_usedate, energy_stopdate, 
+    energy_state, energy_company, energy_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from energy
+    where energy_id = #{energyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from energy
+    where energy_id = #{energyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Energy" >
+    insert into energy (energy_id, energy_num, energy_unitcost, 
+      energy_sum, energy_usedate, energy_stopdate, 
+      energy_state, energy_company, energy_remark
+      )
+    values (#{energyId,jdbcType=INTEGER}, #{energyNum,jdbcType=INTEGER}, #{energyUnitcost,jdbcType=REAL}, 
+      #{energySum,jdbcType=REAL}, #{energyUsedate,jdbcType=VARCHAR}, #{energyStopdate,jdbcType=VARCHAR}, 
+      #{energyState,jdbcType=VARCHAR}, #{energyCompany,jdbcType=VARCHAR}, #{energyRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Energy" >
+    insert into energy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="energyId != null" >
+        energy_id,
+      </if>
+      <if test="energyNum != null" >
+        energy_num,
+      </if>
+      <if test="energyUnitcost != null" >
+        energy_unitcost,
+      </if>
+      <if test="energySum != null" >
+        energy_sum,
+      </if>
+      <if test="energyUsedate != null" >
+        energy_usedate,
+      </if>
+      <if test="energyStopdate != null" >
+        energy_stopdate,
+      </if>
+      <if test="energyState != null" >
+        energy_state,
+      </if>
+      <if test="energyCompany != null" >
+        energy_company,
+      </if>
+      <if test="energyRemark != null" >
+        energy_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="energyId != null" >
+        #{energyId,jdbcType=INTEGER},
+      </if>
+      <if test="energyNum != null" >
+        #{energyNum,jdbcType=INTEGER},
+      </if>
+      <if test="energyUnitcost != null" >
+        #{energyUnitcost,jdbcType=REAL},
+      </if>
+      <if test="energySum != null" >
+        #{energySum,jdbcType=REAL},
+      </if>
+      <if test="energyUsedate != null" >
+        #{energyUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="energyStopdate != null" >
+        #{energyStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="energyState != null" >
+        #{energyState,jdbcType=VARCHAR},
+      </if>
+      <if test="energyCompany != null" >
+        #{energyCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="energyRemark != null" >
+        #{energyRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Energy" >
+    update energy
+    <set >
+      <if test="energyNum != null" >
+        energy_num = #{energyNum,jdbcType=INTEGER},
+      </if>
+      <if test="energyUnitcost != null" >
+        energy_unitcost = #{energyUnitcost,jdbcType=REAL},
+      </if>
+      <if test="energySum != null" >
+        energy_sum = #{energySum,jdbcType=REAL},
+      </if>
+      <if test="energyUsedate != null" >
+        energy_usedate = #{energyUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="energyStopdate != null" >
+        energy_stopdate = #{energyStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="energyState != null" >
+        energy_state = #{energyState,jdbcType=VARCHAR},
+      </if>
+      <if test="energyCompany != null" >
+        energy_company = #{energyCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="energyRemark != null" >
+        energy_remark = #{energyRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where energy_id = #{energyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Energy" >
+    update energy
+    set energy_num = #{energyNum,jdbcType=INTEGER},
+      energy_unitcost = #{energyUnitcost,jdbcType=REAL},
+      energy_sum = #{energySum,jdbcType=REAL},
+      energy_usedate = #{energyUsedate,jdbcType=VARCHAR},
+      energy_stopdate = #{energyStopdate,jdbcType=VARCHAR},
+      energy_state = #{energyState,jdbcType=VARCHAR},
+      energy_company = #{energyCompany,jdbcType=VARCHAR},
+      energy_remark = #{energyRemark,jdbcType=VARCHAR}
+    where energy_id = #{energyId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectListEnergy" parameterType="com.xtf.po.Energy" resultMap="BaseResultMap">
+    select * from energy
+  </select>
+
+  <select id="selectByEnergyNum" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from energy
+    where energy_num = #{energyNum,jdbcType=INTEGER}
+  </select>
+</mapper>

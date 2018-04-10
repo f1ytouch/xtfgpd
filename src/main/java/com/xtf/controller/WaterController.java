@@ -1,5 +1,6 @@
 package com.xtf.controller;
 
+import com.xtf.po.Admin;
 import com.xtf.po.Water;
 import com.xtf.service.WaterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +24,13 @@ public class WaterController {
     public String listWater(Model model, Water water) throws Exception {
         List<Water> list = new ArrayList<>();
         list = waterService.selectList(water);
+        model.addAttribute("water",list);
+        return "/water/listWater";
+    }
+
+    @RequestMapping("selectByWaterNum.do")
+    public String selectByWaterNum(Model model, Integer waterNum) throws Exception {
+        List<Water> list = waterService.selectByWaterNum(waterNum);
         model.addAttribute("water",list);
         return "/water/listWater";
     }

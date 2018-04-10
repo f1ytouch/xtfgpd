@@ -21,11 +21,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
-
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
@@ -77,20 +73,20 @@
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">接待人</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="complainReceiver" value="${item.complainReceiver }" placeholder="接待人">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">处理状态</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="complainState" value="${item.complainState }" placeholder="处理状态">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
+				<%--<div class="form-group">--%>
+					<%--<label  class="col-sm-2 control-label">接待人</label>--%>
+					<%--<div class="col-sm-6">--%>
+						<%--<input type="text" class="form-control" name="complainReceiver" value="${item.complainReceiver }" placeholder="接待人">--%>
+					<%--</div>--%>
+					<%--<span class="col-sm-4"></span>--%>
+				<%--</div>--%>
+				<%--<div class="form-group">--%>
+					<%--<label  class="col-sm-2 control-label">处理状态</label>--%>
+					<%--<div class="col-sm-6">--%>
+						<%--<input type="text" class="form-control" name="complainState" value="${item.complainState }" placeholder="处理状态">--%>
+					<%--</div>--%>
+					<%--<span class="col-sm-4"></span>--%>
+				<%--</div>--%>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">备注</label>
 					<div class="col-sm-6">

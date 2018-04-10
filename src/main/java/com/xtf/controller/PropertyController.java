@@ -25,6 +25,14 @@ public class PropertyController {
         return "/property/listProperty";
     }
 
+    @RequestMapping("selectByProNum.do")
+    public String selectByProNum(Model model, Integer propertyNum) throws Exception {
+        List<Property> list = propertyService.selectByPropertyNum(propertyNum);
+        model.addAttribute("pro",list);
+        return "/property/listProperty";
+    }
+
+
     @RequestMapping("addProperty.do")
     public String addProperty() throws Exception {
         return "/property/addProperty";
@@ -44,7 +52,8 @@ public class PropertyController {
     }
 
     @RequestMapping("editPropertySubmit.do")
-    public String editPropertySubmit(Integer propertyId, @ModelAttribute(value = "item") Property property) throws Exception {
+    public String editPropertySubmit(Integer propertyId,
+                                     @ModelAttribute(value = "item") Property property) throws Exception {
         propertyService.updateByPrimaryKeySelective(property);
         return "redirect:listProperty.do";
     }

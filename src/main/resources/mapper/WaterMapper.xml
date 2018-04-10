@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.WaterMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Water" >
+    <id column="water_id" property="waterId" jdbcType="INTEGER" />
+    <result column="water_num" property="waterNum" jdbcType="INTEGER" />
+    <result column="water_unitcost" property="waterUnitcost" jdbcType="REAL" />
+    <result column="water_sum" property="waterSum" jdbcType="REAL" />
+    <result column="water_usedate" property="waterUsedate" jdbcType="VARCHAR" />
+    <result column="water_stopdate" property="waterStopdate" jdbcType="VARCHAR" />
+    <result column="water_company" property="waterCompany" jdbcType="VARCHAR" />
+    <result column="water_state" property="waterState" jdbcType="VARCHAR" />
+    <result column="water_remark" property="waterRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    water_id, water_num, water_unitcost, water_sum, water_usedate, water_stopdate, water_company, 
+    water_state, water_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from water
+    where water_id = #{waterId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from water
+    where water_id = #{waterId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Water" >
+    insert into water (water_id, water_num, water_unitcost, 
+      water_sum, water_usedate, water_stopdate, 
+      water_company, water_state, water_remark
+      )
+    values (#{waterId,jdbcType=INTEGER}, #{waterNum,jdbcType=INTEGER}, #{waterUnitcost,jdbcType=REAL}, 
+      #{waterSum,jdbcType=REAL}, #{waterUsedate,jdbcType=VARCHAR}, #{waterStopdate,jdbcType=VARCHAR}, 
+      #{waterCompany,jdbcType=VARCHAR}, #{waterState,jdbcType=VARCHAR}, #{waterRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Water" >
+    insert into water
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="waterId != null" >
+        water_id,
+      </if>
+      <if test="waterNum != null" >
+        water_num,
+      </if>
+      <if test="waterUnitcost != null" >
+        water_unitcost,
+      </if>
+      <if test="waterSum != null" >
+        water_sum,
+      </if>
+      <if test="waterUsedate != null" >
+        water_usedate,
+      </if>
+      <if test="waterStopdate != null" >
+        water_stopdate,
+      </if>
+      <if test="waterCompany != null" >
+        water_company,
+      </if>
+      <if test="waterState != null" >
+        water_state,
+      </if>
+      <if test="waterRemark != null" >
+        water_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="waterId != null" >
+        #{waterId,jdbcType=INTEGER},
+      </if>
+      <if test="waterNum != null" >
+        #{waterNum,jdbcType=INTEGER},
+      </if>
+      <if test="waterUnitcost != null" >
+        #{waterUnitcost,jdbcType=REAL},
+      </if>
+      <if test="waterSum != null" >
+        #{waterSum,jdbcType=REAL},
+      </if>
+      <if test="waterUsedate != null" >
+        #{waterUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="waterStopdate != null" >
+        #{waterStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="waterCompany != null" >
+        #{waterCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="waterState != null" >
+        #{waterState,jdbcType=VARCHAR},
+      </if>
+      <if test="waterRemark != null" >
+        #{waterRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Water" >
+    update water
+    <set >
+      <if test="waterNum != null" >
+        water_num = #{waterNum,jdbcType=INTEGER},
+      </if>
+      <if test="waterUnitcost != null" >
+        water_unitcost = #{waterUnitcost,jdbcType=REAL},
+      </if>
+      <if test="waterSum != null" >
+        water_sum = #{waterSum,jdbcType=REAL},
+      </if>
+      <if test="waterUsedate != null" >
+        water_usedate = #{waterUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="waterStopdate != null" >
+        water_stopdate = #{waterStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="waterCompany != null" >
+        water_company = #{waterCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="waterState != null" >
+        water_state = #{waterState,jdbcType=VARCHAR},
+      </if>
+      <if test="waterRemark != null" >
+        water_remark = #{waterRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where water_id = #{waterId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Water" >
+    update water
+    set water_num = #{waterNum,jdbcType=INTEGER},
+      water_unitcost = #{waterUnitcost,jdbcType=REAL},
+      water_sum = #{waterSum,jdbcType=REAL},
+      water_usedate = #{waterUsedate,jdbcType=VARCHAR},
+      water_stopdate = #{waterStopdate,jdbcType=VARCHAR},
+      water_company = #{waterCompany,jdbcType=VARCHAR},
+      water_state = #{waterState,jdbcType=VARCHAR},
+      water_remark = #{waterRemark,jdbcType=VARCHAR}
+    where water_id = #{waterId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectList" resultMap="BaseResultMap" parameterType="com.xtf.po.Water">
+    select * from water
+  </select>
+
+  <select id="selectByWaterNum" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from water
+    where water_num = #{waterNum,jdbcType=INTEGER}
+  </select>
+</mapper>

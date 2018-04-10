@@ -58,4 +58,11 @@ public class WaterServiceImpl implements WaterService {
         list = waterMapper.selectList(record);
         return list;
     }
+
+    @Override
+    public List<Water> selectByWaterNum(Integer waterNum) {
+        List<Water> list = new ArrayList<>();
+        list = waterMapper.selectByWaterNum(waterNum);
+        return list;
+    }
 }

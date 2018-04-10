@@ -144,4 +144,9 @@
     select * from complain
   </select>
 
+  <select id="selectBycomplainNum" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from complain
+    where complain_num = #{complainNum,jdbcType=INTEGER}
+  </select>
+
 </mapper>

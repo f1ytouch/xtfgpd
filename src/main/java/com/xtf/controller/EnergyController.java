@@ -25,6 +25,13 @@ public class EnergyController {
         return "/energy/listEnergy";
     }
 
+    @RequestMapping("selectByEnergyNum.do")
+    public String selectByEnergyNum(Model model, Integer energyNum) throws Exception {
+        List<Energy> list = energyService.selectByEnergyNum(energyNum);
+        model.addAttribute("energy", list);
+        return "/energy/listEnergy";
+    }
+
     @RequestMapping("addEnergy.do")
     public String addEnergy() throws Exception {
         return "/energy/addEnergy";

@@ -18,4 +18,6 @@ public interface WaterMapper {
     int updateByPrimaryKey(Water record);
 
     List<Water> selectList(Water record);
+
+    List<Water> selectByWaterNum(Integer waterNum);
 }

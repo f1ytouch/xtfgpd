@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.HouseMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.House" >
+    <id column="house_id" property="houseId" jdbcType="INTEGER" />
+    <result column="house_num" property="houseNum" jdbcType="INTEGER" />
+    <result column="house_loudonghao" property="houseLoudonghao" jdbcType="VARCHAR" />
+    <result column="house_danyuanhao" property="houseDanyuanhao" jdbcType="VARCHAR" />
+    <result column="house_type" property="houseType" jdbcType="VARCHAR" />
+    <result column="house_area" property="houseArea" jdbcType="VARCHAR" />
+    <result column="house_state" property="houseState" jdbcType="VARCHAR" />
+    <result column="house_remark" property="houseRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    house_id, house_num, house_loudonghao, house_danyuanhao, house_type, house_area, 
+    house_state, house_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from house
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from house
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.House" >
+    insert into house (house_id, house_num, house_loudonghao, 
+      house_danyuanhao, house_type, house_area, 
+      house_state, house_remark)
+    values (#{houseId,jdbcType=INTEGER}, #{houseNum,jdbcType=INTEGER}, #{houseLoudonghao,jdbcType=VARCHAR}, 
+      #{houseDanyuanhao,jdbcType=VARCHAR}, #{houseType,jdbcType=VARCHAR}, #{houseArea,jdbcType=VARCHAR}, 
+      #{houseState,jdbcType=VARCHAR}, #{houseRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.House" >
+    insert into house
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="houseId != null" >
+        house_id,
+      </if>
+      <if test="houseNum != null" >
+        house_num,
+      </if>
+      <if test="houseLoudonghao != null" >
+        house_loudonghao,
+      </if>
+      <if test="houseDanyuanhao != null" >
+        house_danyuanhao,
+      </if>
+      <if test="houseType != null" >
+        house_type,
+      </if>
+      <if test="houseArea != null" >
+        house_area,
+      </if>
+      <if test="houseState != null" >
+        house_state,
+      </if>
+      <if test="houseRemark != null" >
+        house_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="houseNum != null" >
+        #{houseNum,jdbcType=INTEGER},
+      </if>
+      <if test="houseLoudonghao != null" >
+        #{houseLoudonghao,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDanyuanhao != null" >
+        #{houseDanyuanhao,jdbcType=VARCHAR},
+      </if>
+      <if test="houseType != null" >
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseArea != null" >
+        #{houseArea,jdbcType=VARCHAR},
+      </if>
+      <if test="houseState != null" >
+        #{houseState,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRemark != null" >
+        #{houseRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.House" >
+    update house
+    <set >
+      <if test="houseNum != null" >
+        house_num = #{houseNum,jdbcType=INTEGER},
+      </if>
+      <if test="houseLoudonghao != null" >
+        house_loudonghao = #{houseLoudonghao,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDanyuanhao != null" >
+        house_danyuanhao = #{houseDanyuanhao,jdbcType=VARCHAR},
+      </if>
+      <if test="houseType != null" >
+        house_type = #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseArea != null" >
+        house_area = #{houseArea,jdbcType=VARCHAR},
+      </if>
+      <if test="houseState != null" >
+        house_state = #{houseState,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRemark != null" >
+        house_remark = #{houseRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.House" >
+    update house
+    set house_num = #{houseNum,jdbcType=INTEGER},
+      house_loudonghao = #{houseLoudonghao,jdbcType=VARCHAR},
+      house_danyuanhao = #{houseDanyuanhao,jdbcType=VARCHAR},
+      house_type = #{houseType,jdbcType=VARCHAR},
+      house_area = #{houseArea,jdbcType=VARCHAR},
+      house_state = #{houseState,jdbcType=VARCHAR},
+      house_remark = #{houseRemark,jdbcType=VARCHAR}
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectListHouse" parameterType="com.xtf.po.House" resultMap="BaseResultMap">
+    select * from house
+  </select>
+
+  <select id="selectByHouseNum" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from house
+    where house_num = #{houseNum,jdbcType=INTEGER}
+  </select>
+
+</mapper>

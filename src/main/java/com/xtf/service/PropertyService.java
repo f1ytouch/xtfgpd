@@ -18,4 +18,6 @@ public interface PropertyService {
     int updateByPrimaryKey(Property record);
 
     List<Property> selectListPro(Property record);
+
+    List<Property> selectByPropertyNum(Integer propertyNum);
 }

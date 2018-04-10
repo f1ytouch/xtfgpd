@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.PropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Property" >
+    <id column="property_id" property="propertyId" jdbcType="INTEGER" />
+    <result column="property_name" property="propertyName" jdbcType="VARCHAR" />
+    <result column="property_num" property="propertyNum" jdbcType="INTEGER" />
+    <result column="property_unitcost" property="propertyUnitcost" jdbcType="REAL" />
+    <result column="property_sum" property="propertySum" jdbcType="REAL" />
+    <result column="property_usedate" property="propertyUsedate" jdbcType="VARCHAR" />
+    <result column="property_stopdate" property="propertyStopdate" jdbcType="VARCHAR" />
+    <result column="property_state" property="propertyState" jdbcType="VARCHAR" />
+    <result column="property_chargedate" property="propertyChargedate" jdbcType="VARCHAR" />
+    <result column="property_payee" property="propertyPayee" jdbcType="VARCHAR" />
+    <result column="property_way" property="propertyWay" jdbcType="VARCHAR" />
+    <result column="property_remark" property="propertyRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    property_id, property_name, property_num, property_unitcost, property_sum, property_usedate, 
+    property_stopdate, property_state, property_chargedate, property_payee, property_way, 
+    property_remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from property
+    where property_id = #{propertyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from property
+    where property_id = #{propertyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Property" >
+    insert into property (property_id, property_name, property_num, 
+      property_unitcost, property_sum, property_usedate, 
+      property_stopdate, property_state, property_chargedate, 
+      property_payee, property_way, property_remark
+      )
+    values (#{propertyId,jdbcType=INTEGER}, #{propertyName,jdbcType=VARCHAR}, #{propertyNum,jdbcType=INTEGER}, 
+      #{propertyUnitcost,jdbcType=REAL}, #{propertySum,jdbcType=REAL}, #{propertyUsedate,jdbcType=VARCHAR}, 
+      #{propertyStopdate,jdbcType=VARCHAR}, #{propertyState,jdbcType=VARCHAR}, #{propertyChargedate,jdbcType=VARCHAR}, 
+      #{propertyPayee,jdbcType=VARCHAR}, #{propertyWay,jdbcType=VARCHAR}, #{propertyRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Property" >
+    insert into property
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="propertyId != null" >
+        property_id,
+      </if>
+      <if test="propertyName != null" >
+        property_name,
+      </if>
+      <if test="propertyNum != null" >
+        property_num,
+      </if>
+      <if test="propertyUnitcost != null" >
+        property_unitcost,
+      </if>
+      <if test="propertySum != null" >
+        property_sum,
+      </if>
+      <if test="propertyUsedate != null" >
+        property_usedate,
+      </if>
+      <if test="propertyStopdate != null" >
+        property_stopdate,
+      </if>
+      <if test="propertyState != null" >
+        property_state,
+      </if>
+      <if test="propertyChargedate != null" >
+        property_chargedate,
+      </if>
+      <if test="propertyPayee != null" >
+        property_payee,
+      </if>
+      <if test="propertyWay != null" >
+        property_way,
+      </if>
+      <if test="propertyRemark != null" >
+        property_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="propertyId != null" >
+        #{propertyId,jdbcType=INTEGER},
+      </if>
+      <if test="propertyName != null" >
+        #{propertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyNum != null" >
+        #{propertyNum,jdbcType=INTEGER},
+      </if>
+      <if test="propertyUnitcost != null" >
+        #{propertyUnitcost,jdbcType=REAL},
+      </if>
+      <if test="propertySum != null" >
+        #{propertySum,jdbcType=REAL},
+      </if>
+      <if test="propertyUsedate != null" >
+        #{propertyUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyStopdate != null" >
+        #{propertyStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyState != null" >
+        #{propertyState,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyChargedate != null" >
+        #{propertyChargedate,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyPayee != null" >
+        #{propertyPayee,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyWay != null" >
+        #{propertyWay,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyRemark != null" >
+        #{propertyRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Property" >
+    update property
+    <set >
+      <if test="propertyName != null" >
+        property_name = #{propertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyNum != null" >
+        property_num = #{propertyNum,jdbcType=INTEGER},
+      </if>
+      <if test="propertyUnitcost != null" >
+        property_unitcost = #{propertyUnitcost,jdbcType=REAL},
+      </if>
+      <if test="propertySum != null" >
+        property_sum = #{propertySum,jdbcType=REAL},
+      </if>
+      <if test="propertyUsedate != null" >
+        property_usedate = #{propertyUsedate,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyStopdate != null" >
+        property_stopdate = #{propertyStopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyState != null" >
+        property_state = #{propertyState,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyChargedate != null" >
+        property_chargedate = #{propertyChargedate,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyPayee != null" >
+        property_payee = #{propertyPayee,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyWay != null" >
+        property_way = #{propertyWay,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyRemark != null" >
+        property_remark = #{propertyRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where property_id = #{propertyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Property" >
+    update property
+    set property_name = #{propertyName,jdbcType=VARCHAR},
+      property_num = #{propertyNum,jdbcType=INTEGER},
+      property_unitcost = #{propertyUnitcost,jdbcType=REAL},
+      property_sum = #{propertySum,jdbcType=REAL},
+      property_usedate = #{propertyUsedate,jdbcType=VARCHAR},
+      property_stopdate = #{propertyStopdate,jdbcType=VARCHAR},
+      property_state = #{propertyState,jdbcType=VARCHAR},
+      property_chargedate = #{propertyChargedate,jdbcType=VARCHAR},
+      property_payee = #{propertyPayee,jdbcType=VARCHAR},
+      property_way = #{propertyWay,jdbcType=VARCHAR},
+      property_remark = #{propertyRemark,jdbcType=VARCHAR}
+    where property_id = #{propertyId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectListPro" resultMap="BaseResultMap" parameterType="com.xtf.po.Property">
+    select * from property
+  </select>
+
+  <select id="selectByPropertyNum" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from property
+    where property_num = #{propertyNum,jdbcType=INTEGER}
+  </select>
+</mapper>

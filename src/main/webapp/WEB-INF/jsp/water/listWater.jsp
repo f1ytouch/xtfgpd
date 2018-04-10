@@ -21,15 +21,9 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
-
+				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业信息管理</a></li>
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
@@ -39,7 +33,7 @@
 	</div>
 </nav>
 
-<form action="${pageContext.request.contextPath }" method="post">
+
 
 
 	<div class="container">
@@ -48,6 +42,26 @@
 				<td><a href="${pageContext.request.contextPath }/addWater.do">添加水费单</a></td>
 			</tr>
 		</table>
+
+		<div class="row">
+			<div class="col-sm-9 m-b-xs">
+				<a href="${pageContext.request.contextPath }/addWater.do" class="btn btn-primary btn-sm">添加</a>
+			</div>
+			<div class="col-sm-3">
+				<div class="from-group">
+					<form action="${pageContext.request.contextPath }/selectByWaterNum.do" method="post">
+						<div class="input-group">
+							<input input type="text" name="waterNum" placeholder="输入门牌号" class="input-sm form-control">
+							<div class="input-group-btn">
+								<button class="btn btn-sm btn-primary" type="submit">
+									Search
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<div class="panel panel-success">
 			<div class="panel-heading">
@@ -92,7 +106,6 @@
 			</div>
 		</div>
 	</div>
-</form>
 </body>
 
 </html>

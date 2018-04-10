@@ -25,7 +25,7 @@ public class UserController  {
     @RequireAuth
     @RequestMapping("/addUser.do")
     public String editUser() throws Exception {
-        return "/addUser";
+        return "/user/addUser";
     }
 
     @RequireAuth
@@ -36,9 +36,10 @@ public class UserController  {
         UserQueryVo userQueryVo = new UserQueryVo();
         userQueryVo.setUserCustom(userCustom);
         userList = userService.findUserList(userQueryVo);
-        model.addAttribute("userList",userList);
-        return "/userList";
+        model.addAttribute("userList", userList);
+        return "/user/userList";
     }
+
 
     //按姓名模糊查询
     @RequestMapping("/searchUser.do")
@@ -50,7 +51,7 @@ public class UserController  {
         userQueryVo.setUserCustom(userCustom);
         userList = userService.findUserList(userQueryVo);
         model.addAttribute("userList",userList);
-        return "/userList";
+        return "/search";
     }
 
     @RequestMapping("/search.do")
@@ -73,7 +74,7 @@ public class UserController  {
     public String edititem(Model model,Integer id) throws Exception {
         UserCustom userCustom = (UserCustom) userService.findUserById(id);
         model.addAttribute("item",userCustom);
-        return "/editUser";
+        return "/user/editUser";
     }
 
     @RequireAuth

@@ -19,4 +19,6 @@ public interface RepairsService {
     List<Repairs> selectListRep(Repairs repairs);
 
     public int updateRepairs(Integer id, Repairs record);
+
+    List<Repairs> selectByNum(Integer repairsNum);
 }

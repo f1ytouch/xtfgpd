@@ -18,4 +18,6 @@ public interface ComplainService {
     int updateByPrimaryKey(Complain record);
 
     List<Complain> findListCompain(Complain record);
+
+    List<Complain> selectBycomplainNum(Integer complainNum);
 }

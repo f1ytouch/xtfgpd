@@ -21,10 +21,9 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
-				<li class="active"><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业信息管理</a></li>
 
 			</ul>
 		</div>

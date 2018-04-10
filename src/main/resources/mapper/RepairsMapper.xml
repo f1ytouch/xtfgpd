@@ -131,4 +131,9 @@
     select * from repairs
   </select>
 
+  <select id="selectByNum" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from repairs
+    where repairs_num = #{repairsNum,jdbcType=INTEGER}
+  </select>
+
 </mapper>

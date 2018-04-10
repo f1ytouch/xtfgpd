@@ -21,10 +21,9 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 
 			</ul>
 		</div>
@@ -35,8 +34,8 @@
 	</div>
 </nav>
 
-<form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/updateProperty.do" method="post">
-	<input type="text" name="propertyId" value="${item.propertyId }"/>
+<form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/editPropertySubmit.do" method="post">
+	<input type="hidden" name="propertyId" value="${item.propertyId }"/>
 	<div class="container">
 		<div class="panel panel-success">
 			<div class="panel-heading">
@@ -109,7 +108,7 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">收款方式</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="propertyPayee" value="${item.propertyPayee }" placeholder="收款方式">
+						<input type="text" class="form-control" name="propertyWay" value="${item.propertyWay }" placeholder="收款方式">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
