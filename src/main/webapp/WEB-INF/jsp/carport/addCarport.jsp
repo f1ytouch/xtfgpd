@@ -10,7 +10,37 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>添加员工</title>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+        jQuery.validator.addMethod("isMobile", function(value, element) {
+            var length = value.length;
+            var regPhone = /^1([3578]\d|4[57])\d{8}$/;
+            return this.optional(element) || ( length == 11 && regPhone.test( value ) );
+        }, "请正确填写您的手机号码");
+
+        $(function () {
+            $("#editForm").validate({
+                rules: {
+                    carportNum: "required",
+                    carportType: "required",
+                    carportArea: "required",
+                    carportUsedate: {
+                        required: true,
+                        date: true
+                    },
+                    carportStopdate: {
+                        required: true,
+                        date: true
+                    },
+                    carportCellphone: "isMobile",
+                    carportCost: "number"
+
+                }
+            });
+        });
+	</script>
+<title>添加车位</title>
 
 </head>
 <body>

@@ -9,7 +9,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+		$(function () {
+			$("#editForm").validate({
+				rules: {
+                    houseNum: "required",
+                    houseLoudonghao: "required",
+                    houseDanyuanhao: "required",
+                    houseType: "required",
+                    houseArea: "required",
+                    houseState: "required"
+				}
+			});
+        });
+	</script>
 <title>添加房产信息</title>
 
 </head>

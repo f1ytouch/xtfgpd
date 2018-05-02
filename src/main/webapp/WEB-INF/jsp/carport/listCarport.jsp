@@ -59,9 +59,9 @@
 			</div>
 			<div class="col-sm-3">
 				<div class="from-group">
-					<form action="${pageContext.request.contextPath }" method="post">
+					<form action="${pageContext.request.contextPath }/listCarport.do" method="post">
 						<div class="input-group">
-							<input input type="text" name="username" placeholder="输入姓名" class="input-sm form-control">
+							<input input type="text" name="carportNum" placeholder="门牌号" class="input-sm form-control">
 							<div class="input-group-btn">
 								<button class="btn btn-sm btn-primary" type="submit">
 									Search

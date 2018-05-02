@@ -14,8 +14,10 @@
 
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery.validate.min.js"></script>
+    <script src="bootstrap/js/messages_zh.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="bootstrap/login.js"></script>
+    <%--<script src="bootstrap/login.js"></script>--%>
 </head>
 <body>
 <div class="container">
@@ -26,9 +28,9 @@
         <div class="panel-body">
             <form id="loginForm" action="login.do" method="post" class="form-horizontal">
                 <div class="form-group" id="midDiv">
-                    <label class="col-md-3 control-label" for="mid" >用户名：</label>
+                    <label class="col-md-3 control-label" for="username" >用户名：</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" id="mid" name="mid" placeholder="请输入登录名">
+                        <input class="form-control" type="text" id="username" name="username" required placeholder="请输入登录名">
                     </div>
                     <div class="col-md-4" id="midSpan"></div>
                 </div>
@@ -36,7 +38,7 @@
                 <div class="form-group" id="passwordDiv">
                     <label class="col-md-3 control-label" for="password" >密码：</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="password" id="password" name="password" placeholder="请输入密码">
+                        <input class="form-control" type="password" id="password" name="password" required placeholder="请输入密码">
                     </div>
                     <div class="col-md-4" id="passwordSpan"></div>
                 </div>

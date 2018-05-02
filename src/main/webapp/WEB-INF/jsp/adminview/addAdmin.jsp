@@ -10,6 +10,19 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+        $(function () {
+            $("#adminForm").validate({
+                rules: {
+                    adminname: "required",
+                    adminpwd: "required",
+                    roleid: "required"
+                }
+            });
+        });
+	</script>
 
 </head>
 <body>
@@ -30,36 +43,46 @@
 	</div>
 </nav>
 
-<form id="adminForm" action="${pageContext.request.contextPath }/insertAdmin.do" method="post">
+
+<form id="adminForm" class="form-horizontal" action="${pageContext.request.contextPath }/insertAdmin.do" method="post" >
+
 	<div class="container">
-		<div class="panel panel-info">
+		<div class="panel panel-success">
 			<div class="panel-heading">
 				<h3 class="panel-title">添加系统用户</h3>
 			</div>
 			<div class="panel-body">
-				<table class="table table-striped table-bordered table-hover table-condensed">
-					<thead>
-					<tr>
-						<th>用户名</th>
-						<th>密码</th>
-						<th>角色</th>
-						<th>操作</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td><input type="text"  class="form-control" name="adminname" value="${admin.adminname }"/></td>
-						<td><input type="text" class="form-control" name="adminpwd" value="${admin.adminpwd }"/></td>
-						<td><input type="text" class="form-control" name="roleid" value="${admin.roleid }"/></td>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">系统用户名</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="adminname" value="${admin.adminname }" placeholder="系统用户名">
+					</div>
+					<span class="col-sm-4"></span>
+				</div>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">用户密码</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="adminpwd" value="${admin.adminpwd }" placeholder="用户密码">
+					</div>
+					<span class="col-sm-4"></span>
+				</div>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">角色</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="roleid" value="${admin.roleid }" placeholder="角色">
+					</div>
+					<span class="col-sm-4"></span>
+				</div>
 
-						<td class=""><input class="btn-success" type="submit" value="提交"/></td>
-
-					</tr>
-					</tbody>
-				</table>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label"></label>
+					<div class="col-sm-6">
+						<button type="submit" class="btn btn-success">提交</button>
+					</div>
+					<span class="col-sm-4"></span>
+				</div>
 			</div>
 		</div>
-
 	</div>
 </form>
 </body>

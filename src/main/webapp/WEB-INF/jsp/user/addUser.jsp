@@ -16,7 +16,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+	<script>
+        jQuery.validator.addMethod("isMobile", function(value, element) {
+            var length = value.length;
+            var regPhone = /^1([3578]\d|4[57])\d{8}$/;
+            return this.optional(element) || ( length == 11 && regPhone.test( value ) );
+        }, "请正确填写您的手机号码");
+
+        jQuery.validator.addMethod("isChar", function(value, element) {
+            var length = value.length;
+            var regName = /[^\u4e00-\u9fa5]/g;
+            return this.optional(element) || !regName.test( value );
+        }, "请正确格式的姓名(暂支持汉字)");
+
+        jQuery.validator.addMethod("isIdCard",
+            function (value, element) {
+                return this.optional(element) || (isIdCard(value));
+            },
+            "身份证号非法！");
+        jQuery.validator.addMethod("isRightfulString", function(value, element) {
+            return this.optional(element) || /^[A-Za-z0-9_-]+$/.test(value);
+        }, "有非法法字符(a-zA-Z0-9-_)");
+
+        // 身份证号验证
+        function isIdCard(cardid) {
+            //身份证正则表达式(18位)
+            var isIdCard2 = /^[1-9]\d{5}(19\d{2}|[2-9]\d{3})((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])(\d{4}|\d{3}X)$/i;
+            var stard = "10X98765432"; //最后一位身份证的号码
+            var first = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]; //1-17系数
+            var sum = 0;
+            if (!isIdCard2.test(cardid)) {
+                return false;
+            }
+            var year = cardid.substr(6, 4);
+            var month = cardid.substr(10, 2);
+            var day = cardid.substr(12, 2);
+            var birthday = cardid.substr(6, 8);
+            if (birthday != dateToString(new Date(year + '/' + month + '/' + day))) { //校验日期是否合法
+                return false;
+            }
+            for (var i = 0; i < cardid.length - 1; i++) {
+                sum += cardid[i] * first[i];
+            }
+            var result = sum % 11;
+            var last = stard[result]; //计算出来的最后一位身份证号码
+            if (cardid[cardid.length - 1].toUpperCase() == last) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $(function() {
+            $("#userForm").validate({
+
+                rules: {
+                    num: {isRightfulString: true,
+                        required: true
+                    },
+                    username: {
+                        isChar: true,
+                        required: true
+                    },
+                    sex: "required",
+                    idcard: {
+                        isIdCard: true,
+                        required: true
+                    },
+                    cellphone: {
+                        isMobile: true,
+                        required: true
+                    },
+                    regtime: {
+                        dateISO: true,
+                        required: true
+                    }
+
+                },
+                messages: {
+                    num: {
+                        isRightfulString: "包含非法字符",
+                        required: "必须填写"
+                    },
+                    username: {
+                        isChar: "请正确格式的姓名(暂支持汉字)",
+                        required: "必须填写"
+                    },
+                    idcard: {
+                        isIdCard: "身份证号非法！",
+                        required: "必须填写"
+                    },
+                    cellphone: {
+                        isMobile: "请正确填写您的手机号码",
+                        required: "必须填写"
+                    },
+                    regtime: {
+                        dateISO: "时间格式不正确",
+                        required: "必须填写"
+                    }
+                }
+            });
+        });
+
+
+	</script>
 <title>添加业主</title>
 
 </head>
@@ -29,8 +135,6 @@
 		<div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
 
 			</ul>
 		</div>
@@ -41,7 +145,7 @@
 	</div>
 </nav>
 
-<form id="itemForm" class="form-horizontal" action="${pageContext.request.contextPath }/user/insertUser.do" method="post" >
+<form id="userForm" class="form-horizontal" action="${pageContext.request.contextPath }/user/insertUser.do" method="post" >
 
 	<div class="container">
 		<div class="panel panel-success">

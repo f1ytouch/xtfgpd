@@ -49,11 +49,6 @@
 </nav>
 
 	<div class="container">
-		<table class="table table-striped table-bordered table-hover table-condensed">
-			<tr>
-				<td><a href="${pageContext.request.contextPath }/addRepairs.do">添加维修记录</a></td>
-			</tr>
-		</table>
 
 		<div class="row">
 			<div class="col-sm-9 m-b-xs">
@@ -88,7 +83,7 @@
 						<th>报修内容</th>
 						<th>申报时间</th>
 						<th>维修进度</th>
-						<th>费用</th>
+						<th>费用(/元)</th>
 						<th>支付状态</th>
 						<th>备注</th>
 					</tr>
