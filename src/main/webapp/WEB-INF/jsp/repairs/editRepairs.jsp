@@ -16,6 +16,7 @@
         $(function () {
             $("#editForm").validate({
                 rules: {
+                    repairsStartime: "dateISO",
                     repairsCost: "number"
                 }
             });
@@ -94,9 +95,9 @@
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">备注</label>
+					<label  class="col-sm-2 control-label">联系电话</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsRemark" value="${item.repairsRemark }" placeholder="备注">
+						<input type="text" class="form-control" name="repairsRemark" value="${item.repairsRemark }" placeholder="联系电话">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

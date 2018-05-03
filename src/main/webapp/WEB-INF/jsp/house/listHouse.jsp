@@ -40,16 +40,6 @@
 					</ul>
 				</li>
 
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						缴费管理 <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
-						<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
-						<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
-					</ul>
-				</li>
 
 			</ul>
 		</div>
@@ -64,11 +54,6 @@
 
 
 	<div class="container">
-		<table class="table table-striped table-bordered table-hover table-condensed">
-			<tr>
-				<td><a href="${pageContext.request.contextPath }/addHouse.do">添加房产信息</a></td>
-			</tr>
-		</table>
 
 		<div class="row">
 			<div class="col-sm-9 m-b-xs">

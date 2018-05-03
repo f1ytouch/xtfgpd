@@ -10,7 +10,60 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>添加员工</title>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+        jQuery.validator.addMethod("isMobile", function(value, element) {
+            var length = value.length;
+            var regPhone = /^1([3578]\d|4[57])\d{8}$/;
+            return this.optional(element) || ( length == 11 && regPhone.test( value ) );
+        }, "请正确填写您的手机号码");
+        jQuery.validator.addMethod("isIdCard",
+            function (value, element) {
+                return this.optional(element) || (isIdCard(value));
+            },
+            "身份证号非法！");
+
+        // 身份证号验证
+        function isIdCard(cardid) {
+            //身份证正则表达式(18位)
+            var isIdCard2 = /^[1-9]\d{5}(19\d{2}|[2-9]\d{3})((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])(\d{4}|\d{3}X)$/i;
+            var stard = "10X98765432"; //最后一位身份证的号码
+            var first = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]; //1-17系数
+            var sum = 0;
+            if (!isIdCard2.test(cardid)) {
+                return false;
+            }
+            var year = cardid.substr(6, 4);
+            var month = cardid.substr(10, 2);
+            var day = cardid.substr(12, 2);
+            var birthday = cardid.substr(6, 8);
+            if (birthday != dateToString(new Date(year + '/' + month + '/' + day))) { //校验日期是否合法
+                return false;
+            }
+            for (var i = 0; i < cardid.length - 1; i++) {
+                sum += cardid[i] * first[i];
+            }
+            var result = sum % 11;
+            var last = stard[result]; //计算出来的最后一位身份证号码
+            if (cardid[cardid.length - 1].toUpperCase() == last) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $(function () {
+            $("#editForm").validate({
+                rules: {
+
+                    employeeIdcard: "isIdCard",
+                    employeeHiredate: "date"
+                }
+            });
+        });
+	</script>
+<title>编辑员工</title>
 
 </head>
 <body>

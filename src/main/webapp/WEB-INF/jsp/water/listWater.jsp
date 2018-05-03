@@ -23,7 +23,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
@@ -37,11 +37,6 @@
 
 
 	<div class="container">
-		<table class="table table-striped table-bordered table-hover table-condensed">
-			<tr>
-				<td><a href="${pageContext.request.contextPath }/addWater.do">添加水费单</a></td>
-			</tr>
-		</table>
 
 		<div class="row">
 			<div class="col-sm-9 m-b-xs">
@@ -73,8 +68,8 @@
 					<tr>
 						<th>编号</th>
 						<th>门牌号</th>
-						<th>单价</th>
-						<th>使用总量</th>
+						<th>单价(元/吨)</th>
+						<th>使用总量（吨）</th>
 						<th>开始时间</th>
 						<th>结束时间</th>
 						<th>支付状态</th>

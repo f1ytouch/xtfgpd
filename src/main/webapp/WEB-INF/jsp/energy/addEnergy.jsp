@@ -10,6 +10,30 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+
+        $(function () {
+            $("#editForm").validate({
+                rules: {
+                    energyNum: "required",
+                    energyUnitcost: "required",
+                    energySum: "required",
+                    energyUsedate: {
+                        required: true,
+                        date: true
+                    },
+                    energyStopdate: {
+                        required: true,
+                        date: true
+                    },
+                    energyState: "required",
+                    energyCompany: "required"
+                }
+            });
+        });
+	</script>
 <title>添加电费单</title>
 
 </head>

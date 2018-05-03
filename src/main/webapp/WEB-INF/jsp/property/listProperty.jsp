@@ -21,8 +21,8 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 			</ul>
 		</div>
@@ -34,11 +34,6 @@
 </nav>
 
 	<div class="container">
-		<table class="table table-striped table-bordered table-hover table-condensed">
-			<tr>
-				<td><a href="${pageContext.request.contextPath }/addProperty.do">添加物业收费单</a></td>
-			</tr>
-		</table>
 
 		<div class="row">
 			<div class="col-sm-9 m-b-xs">

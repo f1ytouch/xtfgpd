@@ -13,10 +13,18 @@
 	<script src="/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="/bootstrap/js/messages_zh.min.js"></script>
 	<script>
+        jQuery.validator.addMethod("isChar", function(value, element) {
+            var length = value.length;
+            var regName = /[^\u4e00-\u9fa5]/g;
+            return this.optional(element) || !regName.test( value );
+        }, "请正确格式的姓名(暂支持汉字)");
         $(function () {
             $("#adminForm").validate({
                 rules: {
-                    adminname: "required",
+                    adminname: {
+                        required: true,
+                        isChar: true
+					},
                     adminpwd: "required",
                     roleid: "required"
                 }
@@ -55,21 +63,21 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">系统用户名</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="adminname" value="${admin.adminname }" placeholder="系统用户名">
+						<input type="text" class="form-control" name="adminname" value="${item.adminname }" placeholder="系统用户名">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">用户密码</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="adminpwd" value="${admin.adminpwd }" placeholder="用户密码">
+						<input type="text" class="form-control" name="adminpwd" value="${item.adminpwd }" placeholder="用户密码">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">角色</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="roleid" value="${admin.roleid }" placeholder="角色">
+						<input type="text" class="form-control" name="roleid" value="${item.roleid }" placeholder="角色">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

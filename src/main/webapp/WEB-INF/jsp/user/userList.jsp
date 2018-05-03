@@ -62,11 +62,6 @@
 
 
 	<div class="container">
-		<table class="table table-striped table-bordered table-hover table-condensed">
-			<tr>
-				<td><a href="${pageContext.request.contextPath }/user/addUser.do">添加</a></td>
-			</tr>
-		</table>
 
 		<div class="row">
 			<div class="col-sm-9 m-b-xs">

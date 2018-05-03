@@ -21,8 +21,8 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
-				<li class="active"><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/listWater.do">水费信息管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/listEnergy.do">电费信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 			</ul>
 		</div>
@@ -34,11 +34,6 @@
 </nav>
 
 	<div class="container">
-		<table class="table table-striped table-bordered table-hover table-condensed">
-			<tr>
-				<td><a href="${pageContext.request.contextPath }/addEnergy.do">添加电费单</a></td>
-			</tr>
-		</table>
 
 		<div class="row">
 			<div class="col-sm-9 m-b-xs">
@@ -70,8 +65,8 @@
 					<tr>
 						<th>编号</th>
 						<th>门牌号</th>
-						<th>单价</th>
-						<th>使用总量</th>
+						<th>单价（元）</th>
+						<th>使用总量（度）</th>
 						<th>开始时间</th>
 						<th>结束时间</th>
 						<th>支付状态</th>

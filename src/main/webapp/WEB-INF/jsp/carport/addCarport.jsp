@@ -25,6 +25,7 @@
                     carportNum: "required",
                     carportType: "required",
                     carportArea: "required",
+                    carportPlatenum: "required",
                     carportUsedate: {
                         required: true,
                         date: true
@@ -33,8 +34,14 @@
                         required: true,
                         date: true
                     },
-                    carportCellphone: "isMobile",
-                    carportCost: "number"
+                    carportCellphone: {
+                        isMobile: true,
+						required: true
+					},
+                    carportCost: {
+                        number: true,
+						required: true
+					}
 
                 }
             });

@@ -67,6 +67,8 @@
                         required: true,
                         date: true
                     },
+                    employeeState: "required",
+                    employeeStation: "required",
                     employeeOrigo: "required",
                     employeeAddress: "required"
                 }

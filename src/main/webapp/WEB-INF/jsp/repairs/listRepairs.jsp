@@ -85,7 +85,7 @@
 						<th>维修进度</th>
 						<th>费用(/元)</th>
 						<th>支付状态</th>
-						<th>备注</th>
+						<th>联系电话</th>
 					</tr>
 					</thead>
 					<tbody>

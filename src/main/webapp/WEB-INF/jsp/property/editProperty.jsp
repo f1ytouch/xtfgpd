@@ -10,6 +10,20 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+
+        $(function () {
+            $("#editForm").validate({
+                rules: {
+                    propertyUsedate: "date",
+                    propertyStopdate: "date",
+                    propertyChargedate: "date"
+                }
+            });
+        });
+	</script>
 <title>更新物业单</title>
 
 </head>
@@ -73,7 +87,7 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">开始时间</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="propertyUsedate" value="${iitem.propertyUsedate }" placeholder="开始时间">
+						<input type="text" class="form-control" name="propertyUsedate" value="${item.propertyUsedate }" placeholder="开始时间">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

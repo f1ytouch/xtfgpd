@@ -13,12 +13,22 @@
 	<script src="/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="/bootstrap/js/messages_zh.min.js"></script>
 	<script>
+        jQuery.validator.addMethod("isMobile", function(value, element) {
+            var length = value.length;
+            var regPhone = /^1([3578]\d|4[57])\d{8}$/;
+            return this.optional(element) || ( length == 11 && regPhone.test( value ) );
+        }, "请正确填写您的手机号码");
+
         $(function () {
             $("#editForm").validate({
                 rules: {
                     repairsNum: "required",
                     repairsDetails: "required",
-                    repairsStartime: "required"
+                    repairsStartime: {
+                        required: true,
+						dateISO: true
+					},
+                    repairsRemark: "isMobile"
                 }
             });
         });
@@ -94,9 +104,9 @@
 					<%--<span class="col-sm-4"></span>--%>
 				<%--</div>--%>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">备注</label>
+					<label  class="col-sm-2 control-label">联系电话</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsRemark" value="${item.repairsRemark }" placeholder="备注">
+						<input type="text" class="form-control" name="repairsRemark" value="${item.repairsRemark }" placeholder="联系电话">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

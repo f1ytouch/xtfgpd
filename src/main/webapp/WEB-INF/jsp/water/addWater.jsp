@@ -10,6 +10,30 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/js/jquery.validate.min.js"></script>
+	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script>
+
+        $(function () {
+            $("#editForm").validate({
+                rules: {
+                    waterNum: "required",
+                    waterUnitcost: "required",
+                    waterSum: "required",
+                    waterUsedate: {
+                        required: true,
+                        date: true
+                    },
+                    waterStopdate: {
+                        required: true,
+                        date: true
+                    },
+                    waterState: "required",
+                    waterCompany: "required"
+                }
+            });
+        });
+	</script>
 <title>添加水费单</title>
 
 </head>
