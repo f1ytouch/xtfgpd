@@ -44,8 +44,17 @@
     select * from admin where adminname = #{adminname} and adminpwd = #{adminpwd}
   </select>
 
+  <sql id="query_where">
+    <if test="adminname != null">
+      and adminname = #{adminname,jdbcType=VARCHAR}
+    </if>
+  </sql>
+
   <select id="selectAdminList" parameterType="com.xtf.po.Admin" resultMap="BaseResultMap">
     select * from admin
+    <where>
+      <include refid="query_where" />
+    </where>
   </select>
 
 

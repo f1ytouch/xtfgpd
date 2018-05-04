@@ -151,7 +151,23 @@
     where carport_id = #{carportId,jdbcType=INTEGER}
   </update>
 
+  <sql id="select_where">
+
+      <if test="carportNum!=null">
+        and  carport_num = #{carportNum,jdbcType=INTEGER}
+      </if>
+      <if test="carportPlatenum != null">
+        and carport_platenum = #{carportPlatenum,jdbcType=VARCHAR}
+      </if>
+
+  </sql>
+
   <select id="findListCarport" parameterType="com.xtf.po.Carport" resultMap="BaseResultMap">
     select * from carport
+    <where>
+      <include refid="select_where" />
+    </where>
   </select>
+
+
 </mapper>

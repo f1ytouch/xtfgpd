@@ -27,6 +27,11 @@
     where employee_id = #{employeeId,jdbcType=INTEGER}
   </select>
 
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="com.xtf.po.Employee">
+    select * from employee
+    where employee_name = #{employeeName,jdbcType=VARCHAR}
+  </select>
+
   <select id="findListEmployee" resultMap="BaseResultMap">
     select * from employee
   </select>

@@ -8,7 +8,7 @@
     <result column="idcard" property="idcard" jdbcType="VARCHAR" />
     <result column="cellphone" property="cellphone" jdbcType="VARCHAR" />
     <result column="num" property="num" jdbcType="INTEGER" />
-    <result column="regTime" property="regtime" jdbcType="TIMESTAMP" />
+    <result column="regTime" property="regtime" jdbcType="DATE" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -27,7 +27,7 @@
     regTime, remark)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
     #{idcard,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER},
-    #{regtime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+    #{regtime,jdbcType=DATE}, #{remark,jdbcType=VARCHAR})
   </insert>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -83,7 +83,7 @@
         #{num,jdbcType=INTEGER},
       </if>
       <if test="regtime != null" >
-        #{regtime,jdbcType=TIMESTAMP},
+        #{regtime,jdbcType=DATE},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
@@ -111,7 +111,7 @@
         num = #{num,jdbcType=INTEGER},
       </if>
       <if test="regtime != null" >
-        regTime = #{regtime,jdbcType=TIMESTAMP},
+        regTime = #{regtime,jdbcType=DATE},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
@@ -127,7 +127,7 @@
       idcard = #{idcard,jdbcType=VARCHAR},
       cellphone = #{cellphone,jdbcType=VARCHAR},
       num = #{num,jdbcType=INTEGER},
-      regTime = #{regtime,jdbcType=TIMESTAMP},
+      regTime = #{regtime,jdbcType=DATE},
       remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
