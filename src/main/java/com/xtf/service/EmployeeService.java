@@ -18,4 +18,6 @@ public interface EmployeeService {
     int updateByPrimaryKey(Employee record);
 
     List<Employee> findListEmployee();
+
+    Employee selectByName(Employee employee);
 }

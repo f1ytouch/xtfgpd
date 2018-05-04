@@ -23,12 +23,12 @@ public class AdminController {
 
     //登录MD5验证
     @RequestMapping("/login.do")
-    public String login(String mid, String password,
+    public String login(String username, String password,
                         HttpSession session, Model model) {
         Map<String, String> map = new HashMap<String, String>();
         password = new MD5().GetHashPwd(password);
         System.out.println(password);
-        map.put("adminname", mid);
+        map.put("adminname", username);
         map.put("adminpwd", password);
         Admin admin = adminService.selectByNameAndPWD(map);
         int roleid = admin.getRoleid();
@@ -68,10 +68,8 @@ public class AdminController {
     //显示系统用户列表
     @RequireAuth
     @RequestMapping("/adminList.do")
-    public String adminList(Model model) throws Exception {
-        List<Admin> adminList = new ArrayList<>();
-        Admin admin = new Admin();
-        adminList = adminService.selectAdminList(admin);
+    public String adminList(Model model, Admin admin) throws Exception {
+        List<Admin> adminList = adminService.selectAdminList(admin);
         model.addAttribute("adL",adminList);
         return "/adminview/adminList";
     }
@@ -98,7 +96,7 @@ public class AdminController {
         pwd = new MD5().GetHashPwd(pwd);
         admin.setAdminpwd(pwd);
         adminService.insert(admin);
-        return "forward:adminList.do";
+        return "redirect:adminList.do";
     }
 
     //更新系统用户，密码经MD5加密

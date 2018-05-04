@@ -18,4 +18,6 @@ public interface EmployeeMapper {
     int updateByPrimaryKey(Employee record);
 
     List<Employee> findListEmployee();
+
+    Employee selectByName(Employee employee);
 }

@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deletUser(Integer id) {
+
         userMapper.deleteByPrimaryKey(id);
     }
 

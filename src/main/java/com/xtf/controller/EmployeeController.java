@@ -17,6 +17,15 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @RequestMapping("selectByEmployeeName.do")
+    public String selectByEmployeeName(Model model, String employeeName) {
+        Employee employee = new Employee();
+        employee.setEmployeeName(employeeName);
+        Employee employee1 = employeeService.selectByName(employee);
+        model.addAttribute("item", employee1);
+        return "/employee/searchByName";
+    }
+
     //查询员工列表
     @RequestMapping("/findListEmployee.do")
     public String findListEmployee(Model model) throws Exception {
