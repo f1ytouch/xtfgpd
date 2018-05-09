@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.EquipmentMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Equipment" >
+    <id column="equipment_id" property="equipmentId" jdbcType="INTEGER" />
+    <result column="equipment_name" property="equipmentName" jdbcType="VARCHAR" />
+    <result column="equipment_cost" property="equipmentCost" jdbcType="REAL" />
+    <result column="equipment_time" property="equipmentTime" jdbcType="VARCHAR" />
+    <result column="equipment_man" property="equipmentMan" jdbcType="VARCHAR" />
+    <result column="equipment_supplier" property="equipmentSupplier" jdbcType="VARCHAR" />
+    <result column="equipment_phone" property="equipmentPhone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    equipment_id, equipment_name, equipment_cost, equipment_time, equipment_man, equipment_supplier, 
+    equipment_phone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from equipment
+    where equipment_id = #{equipmentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from equipment
+    where equipment_id = #{equipmentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Equipment" >
+    insert into equipment (equipment_id, equipment_name, equipment_cost, 
+      equipment_time, equipment_man, equipment_supplier, 
+      equipment_phone)
+    values (#{equipmentId,jdbcType=INTEGER}, #{equipmentName,jdbcType=VARCHAR}, #{equipmentCost,jdbcType=REAL}, 
+      #{equipmentTime,jdbcType=VARCHAR}, #{equipmentMan,jdbcType=VARCHAR}, #{equipmentSupplier,jdbcType=VARCHAR}, 
+      #{equipmentPhone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Equipment" >
+    insert into equipment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="equipmentId != null" >
+        equipment_id,
+      </if>
+      <if test="equipmentName != null" >
+        equipment_name,
+      </if>
+      <if test="equipmentCost != null" >
+        equipment_cost,
+      </if>
+      <if test="equipmentTime != null" >
+        equipment_time,
+      </if>
+      <if test="equipmentMan != null" >
+        equipment_man,
+      </if>
+      <if test="equipmentSupplier != null" >
+        equipment_supplier,
+      </if>
+      <if test="equipmentPhone != null" >
+        equipment_phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="equipmentId != null" >
+        #{equipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentName != null" >
+        #{equipmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentCost != null" >
+        #{equipmentCost,jdbcType=REAL},
+      </if>
+      <if test="equipmentTime != null" >
+        #{equipmentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentMan != null" >
+        #{equipmentMan,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentSupplier != null" >
+        #{equipmentSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentPhone != null" >
+        #{equipmentPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Equipment" >
+    update equipment
+    <set >
+      <if test="equipmentName != null" >
+        equipment_name = #{equipmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentCost != null" >
+        equipment_cost = #{equipmentCost,jdbcType=REAL},
+      </if>
+      <if test="equipmentTime != null" >
+        equipment_time = #{equipmentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentMan != null" >
+        equipment_man = #{equipmentMan,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentSupplier != null" >
+        equipment_supplier = #{equipmentSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentPhone != null" >
+        equipment_phone = #{equipmentPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where equipment_id = #{equipmentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Equipment" >
+    update equipment
+    set equipment_name = #{equipmentName,jdbcType=VARCHAR},
+      equipment_cost = #{equipmentCost,jdbcType=REAL},
+      equipment_time = #{equipmentTime,jdbcType=VARCHAR},
+      equipment_man = #{equipmentMan,jdbcType=VARCHAR},
+      equipment_supplier = #{equipmentSupplier,jdbcType=VARCHAR},
+      equipment_phone = #{equipmentPhone,jdbcType=VARCHAR}
+    where equipment_id = #{equipmentId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectListEquipment" resultMap="BaseResultMap" parameterType="com.xtf.po.Equipment">
+    select * from equipment
+  </select>
+</mapper>
