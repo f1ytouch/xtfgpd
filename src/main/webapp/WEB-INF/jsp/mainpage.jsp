@@ -37,7 +37,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
-                        <li><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
+                        <li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
                         <li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
                     </ul>
                 </li>
