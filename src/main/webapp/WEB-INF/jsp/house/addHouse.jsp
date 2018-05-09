@@ -16,6 +16,7 @@
 		$(function () {
 			$("#editForm").validate({
 				rules: {
+                    houseId: "required",
                     houseNum: "required",
                     houseLoudonghao: "required",
                     houseDanyuanhao: "required",
@@ -54,6 +55,13 @@
 				<h3 class="panel-title">添加房产信息</h3>
 			</div>
 			<div class="panel-body">
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">房产编号</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="houseId" value="${item.houseId }" placeholder="房产编号">
+					</div>
+					<span class="col-sm-4"></span>
+				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">门牌号</label>
 					<div class="col-sm-6">

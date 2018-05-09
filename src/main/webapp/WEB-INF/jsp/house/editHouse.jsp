@@ -43,13 +43,20 @@
 </nav>
 
 <form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/editHouseSubmit.do" method="post">
-	<input type="hidden" name="houseId" value="${item.houseId }"/>
+
 	<div class="container">
 		<div class="panel panel-success">
 			<div class="panel-heading">
-				<h3 class="panel-title">添加房产信息</h3>
+				<h3 class="panel-title">修改房产信息</h3>
 			</div>
 			<div class="panel-body">
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">房产编号</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="houseId" value="${item.houseId }" placeholder="房产编号">
+					</div>
+					<span class="col-sm-4"></span>
+				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">门牌号</label>
 					<div class="col-sm-6">

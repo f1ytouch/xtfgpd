@@ -49,7 +49,7 @@
 </nav>
 
 <form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/editPropertySubmit.do" method="post">
-	<input type="hidden" name="propertyId" value="${item.propertyId }"/>
+
 	<div class="container">
 		<div class="panel panel-success">
 			<div class="panel-heading">
@@ -57,9 +57,9 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">门牌号</label>
+					<label  class="col-sm-2 control-label">房产编号</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="propertyNum" value="${item.propertyNum }" placeholder="门牌号">
+						<input type="text" class="form-control" name="propertyNum" value="${item.propertyNum }" placeholder="房产编号">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

@@ -26,8 +26,8 @@ public class RepairsController {
     }
 
     @RequestMapping("/selectByNum.do")
-    public String selectByNum(Model model, Integer repairsNum) throws Exception {
-        List<Repairs> list = repairsService.selectByNum(repairsNum);
+    public String selectByNum(Model model, String repairsName) throws Exception {
+        List<Repairs> list = repairsService.selectByName(repairsName);
         model.addAttribute("repairs", list);
         return "/repairs/listRepairs";
     }

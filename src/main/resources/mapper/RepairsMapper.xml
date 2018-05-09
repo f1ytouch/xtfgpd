@@ -3,7 +3,7 @@
 <mapper namespace="com.xtf.dao.RepairsMapper" >
   <resultMap id="BaseResultMap" type="com.xtf.po.Repairs" >
     <id column="repairs_id" property="repairsId" jdbcType="INTEGER" />
-    <result column="repairs_num" property="repairsNum" jdbcType="INTEGER" />
+    <result column="repairs_name" property="repairsName" jdbcType="VARCHAR" />
     <result column="repairs_details" property="repairsDetails" jdbcType="VARCHAR" />
     <result column="repairs_startime" property="repairsStartime" jdbcType="VARCHAR" />
     <result column="repairs_plan" property="repairsPlan" jdbcType="VARCHAR" />
@@ -12,7 +12,7 @@
     <result column="repairs_remark" property="repairsRemark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    repairs_id, repairs_num, repairs_details, repairs_startime, repairs_plan, repairs_cost, 
+    repairs_id, repairs_name, repairs_details, repairs_startime, repairs_plan, repairs_cost, 
     repairs_paystate, repairs_remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -26,10 +26,10 @@
     where repairs_id = #{repairsId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.xtf.po.Repairs" >
-    insert into repairs (repairs_id, repairs_num, repairs_details, 
+    insert into repairs (repairs_id, repairs_name, repairs_details, 
       repairs_startime, repairs_plan, repairs_cost, 
       repairs_paystate, repairs_remark)
-    values (#{repairsId,jdbcType=INTEGER}, #{repairsNum,jdbcType=INTEGER}, #{repairsDetails,jdbcType=VARCHAR}, 
+    values (#{repairsId,jdbcType=INTEGER}, #{repairsName,jdbcType=VARCHAR}, #{repairsDetails,jdbcType=VARCHAR},
       #{repairsStartime,jdbcType=VARCHAR}, #{repairsPlan,jdbcType=VARCHAR}, #{repairsCost,jdbcType=REAL}, 
       #{repairsPaystate,jdbcType=VARCHAR}, #{repairsRemark,jdbcType=VARCHAR})
   </insert>
@@ -39,8 +39,8 @@
       <if test="repairsId != null" >
         repairs_id,
       </if>
-      <if test="repairsNum != null" >
-        repairs_num,
+      <if test="repairsName != null" >
+        repairs_name,
       </if>
       <if test="repairsDetails != null" >
         repairs_details,
@@ -65,8 +65,8 @@
       <if test="repairsId != null" >
         #{repairsId,jdbcType=INTEGER},
       </if>
-      <if test="repairsNum != null" >
-        #{repairsNum,jdbcType=INTEGER},
+      <if test="repairsName != null" >
+        #{repairsName,jdbcType=VARCHAR},
       </if>
       <if test="repairsDetails != null" >
         #{repairsDetails,jdbcType=VARCHAR},
@@ -91,8 +91,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Repairs" >
     update repairs
     <set >
-      <if test="repairsNum != null" >
-        repairs_num = #{repairsNum,jdbcType=INTEGER},
+      <if test="repairsName != null" >
+        repairs_name = #{repairsName,jdbcType=VARCHAR},
       </if>
       <if test="repairsDetails != null" >
         repairs_details = #{repairsDetails,jdbcType=VARCHAR},
@@ -117,7 +117,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xtf.po.Repairs" >
     update repairs
-    set repairs_num = #{repairsNum,jdbcType=INTEGER},
+    set repairs_name = #{repairsName,jdbcType=VARCHAR},
       repairs_details = #{repairsDetails,jdbcType=VARCHAR},
       repairs_startime = #{repairsStartime,jdbcType=VARCHAR},
       repairs_plan = #{repairsPlan,jdbcType=VARCHAR},
@@ -131,9 +131,9 @@
     select * from repairs
   </select>
 
-  <select id="selectByNum" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByName" parameterType="String" resultMap="BaseResultMap">
     select * from repairs
-    where repairs_num = #{repairsNum,jdbcType=INTEGER}
+    where repairs_name = #{repairsName,jdbcType=VARCHAR}
   </select>
 
 </mapper>

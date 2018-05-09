@@ -64,7 +64,7 @@
 					<thead>
 					<tr>
 						<th>编号</th>
-						<th>门牌号</th>
+						<th>房产编号</th>
 						<th>收费项目名</th>
 						<th>单价</th>
 						<th>总价</th>

@@ -22,7 +22,7 @@
         $(function () {
             $("#editForm").validate({
                 rules: {
-                    repairsNum: "required",
+                    repairsName: "required",
                     repairsDetails: "required",
                     repairsStartime: {
                         required: true,
@@ -62,9 +62,9 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">门牌号</label>
+					<label  class="col-sm-2 control-label">申请人</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsNum" value="${item.repairsNum }" placeholder="门牌号">
+						<input type="text" class="form-control" name="repairsName" value="${item.repairsName }" placeholder="申请人">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

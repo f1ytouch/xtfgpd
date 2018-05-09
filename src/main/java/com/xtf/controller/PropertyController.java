@@ -26,7 +26,7 @@ public class PropertyController {
     }
 
     @RequestMapping("selectByProNum.do")
-    public String selectByProNum(Model model, Integer propertyNum) throws Exception {
+    public String selectByProNum(Model model, String propertyNum) throws Exception {
         List<Property> list = propertyService.selectByPropertyNum(propertyNum);
         model.addAttribute("pro",list);
         return "/property/listProperty";

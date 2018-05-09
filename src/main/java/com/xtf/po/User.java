@@ -13,7 +13,7 @@ public class User {
 
     private String cellphone;
 
-    private Integer num;
+    private String num;
 
     private Date regtime;
 
@@ -59,11 +59,11 @@ public class User {
         this.cellphone = cellphone == null ? null : cellphone.trim();
     }
 
-    public Integer getNum() {
+    public String getNum() {
         return num;
     }
 
-    public void setNum(Integer num) {
+    public void setNum(String num) {
         this.num = num;
     }
 

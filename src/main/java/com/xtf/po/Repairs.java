@@ -3,7 +3,7 @@ package com.xtf.po;
 public class Repairs {
     private Integer repairsId;
 
-    private Integer repairsNum;
+    private String repairsName;
 
     private String repairsDetails;
 
@@ -25,12 +25,12 @@ public class Repairs {
         this.repairsId = repairsId;
     }
 
-    public Integer getRepairsNum() {
-        return repairsNum;
+    public String getrepairsName() {
+        return repairsName;
     }
 
-    public void setRepairsNum(Integer repairsNum) {
-        this.repairsNum = repairsNum;
+    public void setrepairsName(String repairsName) {
+        this.repairsName = repairsName;
     }
 
     public String getRepairsDetails() {

@@ -19,5 +19,5 @@ public interface PropertyMapper {
 
     List<Property> selectListPro(Property record);
 
-    List<Property> selectByPropertyNum(Integer propertyNum);
+    List<Property> selectByPropertyNum(String propertyNum);
 }

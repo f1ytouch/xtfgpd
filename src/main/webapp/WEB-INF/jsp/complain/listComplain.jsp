@@ -80,7 +80,6 @@
 					<thead>
 					<tr>
 						<th>编号</th>
-						<th>门牌号</th>
 						<th>投诉人</th>
 						<th>投诉内容</th>
 						<th>投诉时间</th>
@@ -96,7 +95,6 @@
 					<c:forEach items="${complain }" var="item">
 						<tr>
 							<td>${item.complainId }</td>
-							<td>${item.complainNum }</td>
 							<td>${item.complainName}</td>
 							<td>${item.complainDetails }</td>
 							<td>${item.complainTime }</td>

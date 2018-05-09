@@ -68,15 +68,15 @@ public class userviewController {
     }
 
     @RequestMapping("/selectByProNum.do")
-    public String selectByProNum(Model model, Integer propertyNum) throws Exception {
+    public String selectByProNum(Model model, String propertyNum) throws Exception {
         List<Property> list = propertyService.selectByPropertyNum(propertyNum);
         model.addAttribute("pro",list);
         return "/userview/listProperty";
     }
 
     @RequestMapping("/selectByNum.do")
-    public String selectByNum(Model model, Integer repairsNum) throws Exception {
-        List<Repairs> list = repairsService.selectByNum(repairsNum);
+    public String selectByNum(Model model, String repairsName) throws Exception {
+        List<Repairs> list = repairsService.selectByName(repairsName);
         model.addAttribute("repairs", list);
         return "/userview/listRepairs";
     }

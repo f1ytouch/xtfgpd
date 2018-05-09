@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xtf.po.Property" >
     <id column="property_id" property="propertyId" jdbcType="INTEGER" />
     <result column="property_name" property="propertyName" jdbcType="VARCHAR" />
-    <result column="property_num" property="propertyNum" jdbcType="INTEGER" />
+    <result column="property_num" property="propertyNum" jdbcType="VARCHAR" />
     <result column="property_unitcost" property="propertyUnitcost" jdbcType="REAL" />
     <result column="property_sum" property="propertySum" jdbcType="REAL" />
     <result column="property_usedate" property="propertyUsedate" jdbcType="VARCHAR" />
@@ -36,7 +36,7 @@
       property_stopdate, property_state, property_chargedate, 
       property_payee, property_way, property_remark
       )
-    values (#{propertyId,jdbcType=INTEGER}, #{propertyName,jdbcType=VARCHAR}, #{propertyNum,jdbcType=INTEGER}, 
+    values (#{propertyId,jdbcType=INTEGER}, #{propertyName,jdbcType=VARCHAR}, #{propertyNum,jdbcType=VARCHAR},
       #{propertyUnitcost,jdbcType=REAL}, #{propertySum,jdbcType=REAL}, #{propertyUsedate,jdbcType=VARCHAR}, 
       #{propertyStopdate,jdbcType=VARCHAR}, #{propertyState,jdbcType=VARCHAR}, #{propertyChargedate,jdbcType=VARCHAR}, 
       #{propertyPayee,jdbcType=VARCHAR}, #{propertyWay,jdbcType=VARCHAR}, #{propertyRemark,jdbcType=VARCHAR}
@@ -128,7 +128,7 @@
         property_name = #{propertyName,jdbcType=VARCHAR},
       </if>
       <if test="propertyNum != null" >
-        property_num = #{propertyNum,jdbcType=INTEGER},
+        property_num = #{propertyNum,jdbcType=VARCHAR},
       </if>
       <if test="propertyUnitcost != null" >
         property_unitcost = #{propertyUnitcost,jdbcType=REAL},
@@ -163,7 +163,7 @@
   <update id="updateByPrimaryKey" parameterType="com.xtf.po.Property" >
     update property
     set property_name = #{propertyName,jdbcType=VARCHAR},
-      property_num = #{propertyNum,jdbcType=INTEGER},
+      property_num = #{propertyNum,jdbcType=VARCHAR},
       property_unitcost = #{propertyUnitcost,jdbcType=REAL},
       property_sum = #{propertySum,jdbcType=REAL},
       property_usedate = #{propertyUsedate,jdbcType=VARCHAR},
@@ -182,6 +182,6 @@
 
   <select id="selectByPropertyNum" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from property
-    where property_num = #{propertyNum,jdbcType=INTEGER}
+    where property_num = #{propertyNum,jdbcType=VARCHAR}
   </select>
 </mapper>

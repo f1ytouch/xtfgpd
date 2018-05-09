@@ -5,7 +5,7 @@ public class Property {
 
     private String propertyName;
 
-    private Integer propertyNum;
+    private String propertyNum;
 
     private Float propertyUnitcost;
 
@@ -41,11 +41,11 @@ public class Property {
         this.propertyName = propertyName == null ? null : propertyName.trim();
     }
 
-    public Integer getPropertyNum() {
+    public String getPropertyNum() {
         return propertyNum;
     }
 
-    public void setPropertyNum(Integer propertyNum) {
+    public void setPropertyNum(String propertyNum) {
         this.propertyNum = propertyNum;
     }
 

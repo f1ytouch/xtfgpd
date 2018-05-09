@@ -56,9 +56,9 @@
 			</div>
 			<div class="col-sm-3">
 				<div class="from-group">
-					<form action="${pageContext.request.contextPath }/selectByNum.do" method="post">
+					<form action="${pageContext.request.contextPath }/selectByName.do" method="post">
 						<div class="input-group">
-							<input input type="text" name="repairsNum" placeholder="输入门牌号" class="input-sm form-control">
+							<input input type="text" name="repairsName" placeholder="输入姓名" class="input-sm form-control">
 							<div class="input-group-btn">
 								<button class="btn btn-sm btn-primary" type="submit">
 									Search
@@ -79,7 +79,7 @@
 					<thead>
 					<tr>
 						<th>编号</th>
-						<th>门牌号</th>
+						<th>申请人</th>
 						<th>报修内容</th>
 						<th>申报时间</th>
 						<th>维修进度</th>
@@ -93,7 +93,7 @@
 					<c:forEach items="${repairs }" var="item">
 						<tr>
 							<td>${item.repairsId }</td>
-							<td>${item.repairsNum }</td>
+							<td>${item.repairsName }</td>
 							<td>${item.repairsDetails}</td>
 							<td>${item.repairsStartime }</td>
 							<td>${item.repairsPlan }</td>

@@ -91,7 +91,8 @@
 				<table class="table table-striped table-bordered table-hover table-condensed">
 					<thead>
 					<tr>
-						<th>门牌号</th>
+						<th>编号</th>
+						<th>房产编号</th>
 						<th>业主姓名</th>
 						<th>身份证</th>
 						<th>入住时间</th>
@@ -104,6 +105,7 @@
 
 					<c:forEach items="${userList }" var="item">
 						<tr>
+							<td>${item.id}</td>
 							<td>${item.num }</td>
 							<td>${item.username}</td>
 							<td>${item.idcard }</td>

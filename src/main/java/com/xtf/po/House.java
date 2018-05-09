@@ -1,7 +1,7 @@
 package com.xtf.po;
 
 public class House {
-    private Integer houseId;
+    private String houseId;
 
     private Integer houseNum;
 
@@ -17,11 +17,11 @@ public class House {
 
     private String houseRemark;
 
-    public Integer getHouseId() {
+    public String getHouseId() {
         return houseId;
     }
 
-    public void setHouseId(Integer houseId) {
+    public void setHouseId(String houseId) {
         this.houseId = houseId;
     }
 

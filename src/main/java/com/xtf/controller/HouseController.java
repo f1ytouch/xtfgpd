@@ -44,20 +44,20 @@ public class HouseController {
     }
 
     @RequestMapping("editHouse.do")
-    public String editHouse(Model model, Integer id) throws Exception {
+    public String editHouse(Model model, String id) throws Exception {
         House house = houseService.selectByPrimaryKey(id);
         model.addAttribute("item", house);
         return "/house/editHouse";
     }
 
     @RequestMapping("editHouseSubmit.do")
-    public String editHouseSubmit(Integer houseId, @ModelAttribute(value = "item") House house) throws Exception {
-        houseService.updateByPrimaryKey(house);
+    public String editHouseSubmit(@ModelAttribute(value = "item") House house) throws Exception {
+        houseService.updateByPrimaryKeySelective(house);
         return "redirect:listHouse.do";
     }
 
     @RequestMapping("deleteHouse.do")
-    public String deleteHouse(Integer id) throws Exception {
+    public String deleteHouse(String id) throws Exception {
         houseService.deleteByPrimaryKey(id);
         return "redirect:listHouse.do";
     }

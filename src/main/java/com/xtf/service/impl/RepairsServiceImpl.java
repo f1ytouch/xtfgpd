@@ -53,8 +53,8 @@ public class RepairsServiceImpl implements RepairsService{
     }
 
     @Override
-    public List<Repairs> selectByNum(Integer repairsNum) {
-        return requestMapping.selectByNum(repairsNum);
+    public List<Repairs> selectByName(String repairsName) {
+        return requestMapping.selectByName(repairsName);
     }
 
     @Override

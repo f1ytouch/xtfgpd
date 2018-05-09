@@ -3,7 +3,7 @@
 <mapper namespace="com.xtf.dao.CarportMapper" >
   <resultMap id="BaseResultMap" type="com.xtf.po.Carport" >
     <id column="carport_id" property="carportId" jdbcType="INTEGER" />
-    <result column="carport_num" property="carportNum" jdbcType="INTEGER" />
+    <result column="carport_num" property="carportNum" jdbcType="VARCHAR" />
     <result column="carport_type" property="carportType" jdbcType="VARCHAR" />
     <result column="carport_area" property="carportArea" jdbcType="VARCHAR" />
     <result column="carport_platenum" property="carportPlatenum" jdbcType="VARCHAR" />
@@ -32,7 +32,7 @@
       carport_area, carport_platenum, carport_usedate, 
       carport_stopdate, carport_cellphone, carport_cost, 
       carport_remark)
-    values (#{carportId,jdbcType=INTEGER}, #{carportNum,jdbcType=INTEGER}, #{carportType,jdbcType=VARCHAR}, 
+    values (#{carportId,jdbcType=INTEGER}, #{carportNum,jdbcType=VARCHAR}, #{carportType,jdbcType=VARCHAR},
       #{carportArea,jdbcType=VARCHAR}, #{carportPlatenum,jdbcType=VARCHAR}, #{carportUsedate,jdbcType=VARCHAR}, 
       #{carportStopdate,jdbcType=VARCHAR}, #{carportCellphone,jdbcType=VARCHAR}, #{carportCost,jdbcType=REAL}, 
       #{carportRemark,jdbcType=VARCHAR})
@@ -76,7 +76,7 @@
         #{carportId,jdbcType=INTEGER},
       </if>
       <if test="carportNum != null" >
-        #{carportNum,jdbcType=INTEGER},
+        #{carportNum,jdbcType=VARCHAR},
       </if>
       <if test="carportType != null" >
         #{carportType,jdbcType=VARCHAR},
@@ -108,7 +108,7 @@
     update carport
     <set >
       <if test="carportNum != null" >
-        carport_num = #{carportNum,jdbcType=INTEGER},
+        carport_num = #{carportNum,jdbcType=VARCHAR},
       </if>
       <if test="carportType != null" >
         carport_type = #{carportType,jdbcType=VARCHAR},
@@ -139,7 +139,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xtf.po.Carport" >
     update carport
-    set carport_num = #{carportNum,jdbcType=INTEGER},
+    set carport_num = #{carportNum,jdbcType=VARCHAR},
       carport_type = #{carportType,jdbcType=VARCHAR},
       carport_area = #{carportArea,jdbcType=VARCHAR},
       carport_platenum = #{carportPlatenum,jdbcType=VARCHAR},
@@ -154,7 +154,7 @@
   <sql id="select_where">
 
       <if test="carportNum!=null">
-        and  carport_num = #{carportNum,jdbcType=INTEGER}
+        and  carport_num = #{carportNum,jdbcType=VARCHAR}
       </if>
       <if test="carportPlatenum != null">
         and carport_platenum = #{carportPlatenum,jdbcType=VARCHAR}

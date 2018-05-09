@@ -16,7 +16,7 @@ public class HouseServiceImpl implements HouseService{
     private HouseMapper houseMapper;
 
     @Override
-    public int deleteByPrimaryKey(Integer houseId) {
+    public int deleteByPrimaryKey(String houseId) {
         houseMapper.deleteByPrimaryKey(houseId);
         return 0;
     }
@@ -34,7 +34,7 @@ public class HouseServiceImpl implements HouseService{
     }
 
     @Override
-    public House selectByPrimaryKey(Integer houseId) {
+    public House selectByPrimaryKey(String houseId) {
 
         return houseMapper.selectByPrimaryKey(houseId);
     }

@@ -5,13 +5,13 @@ import com.xtf.po.House;
 import java.util.List;
 
 public interface HouseService {
-    int deleteByPrimaryKey(Integer houseId);
+    int deleteByPrimaryKey(String houseId);
 
     int insert(House record);
 
     int insertSelective(House record);
 
-    House selectByPrimaryKey(Integer houseId);
+    House selectByPrimaryKey(String houseId);
 
     int updateByPrimaryKeySelective(House record);
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xtf.dao.HouseMapper" >
   <resultMap id="BaseResultMap" type="com.xtf.po.House" >
-    <id column="house_id" property="houseId" jdbcType="INTEGER" />
+    <id column="house_id" property="houseId" jdbcType="VARCHAR" />
     <result column="house_num" property="houseNum" jdbcType="INTEGER" />
     <result column="house_loudonghao" property="houseLoudonghao" jdbcType="VARCHAR" />
     <result column="house_danyuanhao" property="houseDanyuanhao" jdbcType="VARCHAR" />
@@ -15,21 +15,21 @@
     house_id, house_num, house_loudonghao, house_danyuanhao, house_type, house_area, 
     house_state, house_remark
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="String" >
     select 
     <include refid="Base_Column_List" />
     from house
-    where house_id = #{houseId,jdbcType=INTEGER}
+    where house_id = #{houseId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="String" >
     delete from house
-    where house_id = #{houseId,jdbcType=INTEGER}
+    where house_id = #{houseId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xtf.po.House" >
     insert into house (house_id, house_num, house_loudonghao, 
       house_danyuanhao, house_type, house_area, 
       house_state, house_remark)
-    values (#{houseId,jdbcType=INTEGER}, #{houseNum,jdbcType=INTEGER}, #{houseLoudonghao,jdbcType=VARCHAR}, 
+    values (#{houseId,jdbcType=VARCHAR}, #{houseNum,jdbcType=INTEGER}, #{houseLoudonghao,jdbcType=VARCHAR},
       #{houseDanyuanhao,jdbcType=VARCHAR}, #{houseType,jdbcType=VARCHAR}, #{houseArea,jdbcType=VARCHAR}, 
       #{houseState,jdbcType=VARCHAR}, #{houseRemark,jdbcType=VARCHAR})
   </insert>
@@ -63,7 +63,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="houseId != null" >
-        #{houseId,jdbcType=INTEGER},
+        #{houseId,jdbcType=VARCHAR},
       </if>
       <if test="houseNum != null" >
         #{houseNum,jdbcType=INTEGER},
@@ -113,7 +113,7 @@
         house_remark = #{houseRemark,jdbcType=VARCHAR},
       </if>
     </set>
-    where house_id = #{houseId,jdbcType=INTEGER}
+    where house_id = #{houseId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xtf.po.House" >
     update house
@@ -124,7 +124,7 @@
       house_area = #{houseArea,jdbcType=VARCHAR},
       house_state = #{houseState,jdbcType=VARCHAR},
       house_remark = #{houseRemark,jdbcType=VARCHAR}
-    where house_id = #{houseId,jdbcType=INTEGER}
+    where house_id = #{houseId,jdbcType=VARCHAR}
   </update>
 
   <select id="selectListHouse" parameterType="com.xtf.po.House" resultMap="BaseResultMap">

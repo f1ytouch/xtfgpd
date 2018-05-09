@@ -3,7 +3,7 @@ package com.xtf.po;
 public class Carport {
     private Integer carportId;
 
-    private Integer carportNum;
+    private String carportNum;
 
     private String carportType;
 
@@ -29,11 +29,11 @@ public class Carport {
         this.carportId = carportId;
     }
 
-    public Integer getCarportNum() {
+    public String getCarportNum() {
         return carportNum;
     }
 
-    public void setCarportNum(Integer carportNum) {
+    public void setCarportNum(String carportNum) {
         this.carportNum = carportNum;
     }
 

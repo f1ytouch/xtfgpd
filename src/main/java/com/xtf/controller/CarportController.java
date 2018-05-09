@@ -17,7 +17,7 @@ public class CarportController {
     private CarportService carportService;
 
     @RequestMapping("/listCarport.do")
-    public String listCarport(Model model, Integer carportNum) throws Exception {
+    public String listCarport(Model model, String carportNum) throws Exception {
         Carport carport = new Carport();
         carport.setCarportNum(carportNum);
         List<Carport> list = carportService.findListCarport(carport);

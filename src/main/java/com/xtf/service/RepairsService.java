@@ -20,5 +20,5 @@ public interface RepairsService {
 
     public int updateRepairs(Integer id, Repairs record);
 
-    List<Repairs> selectByNum(Integer repairsNum);
+    List<Repairs> selectByName(String repairsName);
 }

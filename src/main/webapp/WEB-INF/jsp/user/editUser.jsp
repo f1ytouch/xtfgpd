@@ -76,7 +76,7 @@
             $("#editForm").validate({
 
                 rules: {
-                    num: "isDigits",
+                    num: "isRightfulString",
                     username: "isChar",
                     idcard: "isIdCard",
                     cellphone: "isMobile"
@@ -115,9 +115,9 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">门牌号</label>
+					<label  class="col-sm-2 control-label">房产编号</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="num" value="${item.num }" placeholder="门牌号">
+						<input type="text" class="form-control" name="num" value="${item.num }" placeholder="房产编号">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

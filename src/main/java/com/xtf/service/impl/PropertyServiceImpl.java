@@ -58,7 +58,7 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public List<Property> selectByPropertyNum(Integer propertyNum) {
+    public List<Property> selectByPropertyNum(String propertyNum) {
         return propertyMapper.selectByPropertyNum(propertyNum);
     }
 }

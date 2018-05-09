@@ -61,7 +61,7 @@
 				<div class="from-group">
 					<form action="${pageContext.request.contextPath }/listCarport.do" method="post">
 						<div class="input-group">
-							<input input type="text" name="carportNum" placeholder="门牌号" class="input-sm form-control">
+							<input input type="text" name="carportNum" placeholder="房产编号" class="input-sm form-control">
 							<div class="input-group-btn">
 								<button class="btn btn-sm btn-primary" type="submit">
 									Search
@@ -82,7 +82,7 @@
 					<thead>
 					<tr>
 						<th>编号</th>
-						<th>门牌号</th>
+						<th>房产编号</th>
 						<th>车辆类型</th>
 						<th>车位面积</th>
 						<th>车牌号</th>

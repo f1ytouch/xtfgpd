@@ -7,7 +7,7 @@
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="idcard" property="idcard" jdbcType="VARCHAR" />
     <result column="cellphone" property="cellphone" jdbcType="VARCHAR" />
-    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
     <result column="regTime" property="regtime" jdbcType="DATE" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
@@ -26,7 +26,7 @@
     idcard, cellphone, num,
     regTime, remark)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
-    #{idcard,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER},
+    #{idcard,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR},
     #{regtime,jdbcType=DATE}, #{remark,jdbcType=VARCHAR})
   </insert>
 
@@ -80,7 +80,7 @@
         #{cellphone,jdbcType=VARCHAR},
       </if>
       <if test="num != null" >
-        #{num,jdbcType=INTEGER},
+        #{num,jdbcType=VARCHAR},
       </if>
       <if test="regtime != null" >
         #{regtime,jdbcType=DATE},
@@ -108,7 +108,7 @@
         cellphone = #{cellphone,jdbcType=VARCHAR},
       </if>
       <if test="num != null" >
-        num = #{num,jdbcType=INTEGER},
+        num = #{num,jdbcType=VARCHAR},
       </if>
       <if test="regtime != null" >
         regTime = #{regtime,jdbcType=DATE},
@@ -126,7 +126,7 @@
       sex = #{sex,jdbcType=VARCHAR},
       idcard = #{idcard,jdbcType=VARCHAR},
       cellphone = #{cellphone,jdbcType=VARCHAR},
-      num = #{num,jdbcType=INTEGER},
+      num = #{num,jdbcType=VARCHAR},
       regTime = #{regtime,jdbcType=DATE},
       remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
@@ -136,7 +136,7 @@
     update USER
     set idcard = #{idcard,jdbcType=VARCHAR},
     cellphone = #{cellphone,jdbcType=VARCHAR},
-    num = #{num,jdbcType=INTEGER},
+    num = #{num,jdbcType=VARCHAR},
     remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

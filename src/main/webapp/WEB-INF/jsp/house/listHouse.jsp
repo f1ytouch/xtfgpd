@@ -83,7 +83,7 @@
 				<table class="table table-striped table-bordered table-hover table-condensed">
 					<thead>
 					<tr>
-						<th>编号</th>
+						<th>房产编号</th>
 						<th>门牌号</th>
 						<th>楼栋号</th>
 						<th>单元号</th>

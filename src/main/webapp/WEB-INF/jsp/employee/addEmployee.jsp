@@ -148,7 +148,7 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">入职时间</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="employeeHiredate" value="${item.employeeHiredate }" placeholder="家庭地址">
+						<input type="text" class="form-control" name="employeeHiredate" value="${item.employeeHiredate }" placeholder="入职时间">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
@@ -162,14 +162,14 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">在职状态</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="employeeState" value="${item.employeeState }" placeholder="家庭地址">
+						<input type="text" class="form-control" name="employeeState" value="${item.employeeState }" placeholder="在职状态">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">离职时间</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="employeeLeavedate" value="${item.employeeLeavedate }" placeholder="家庭地址">
+						<input type="text" class="form-control" name="employeeLeavedate" value="${item.employeeLeavedate }" placeholder="离职时间">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

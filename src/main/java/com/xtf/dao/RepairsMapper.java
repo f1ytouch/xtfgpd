@@ -18,5 +18,5 @@ public interface RepairsMapper {
 
     List<Repairs> selectListRep(Repairs repairs);
 
-    List<Repairs> selectByNum(Integer repairsNum);
+    List<Repairs> selectByName(String repairsName);
 }
