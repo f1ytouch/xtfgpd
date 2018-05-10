@@ -49,7 +49,7 @@
 </nav>
 
 <form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/editPropertySubmit.do" method="post">
-
+	<input type="hidden" name="propertyId" value="${item.propertyId }"/>
 	<div class="container">
 		<div class="panel panel-success">
 			<div class="panel-heading">

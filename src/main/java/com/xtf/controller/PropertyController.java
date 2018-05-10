@@ -52,8 +52,7 @@ public class PropertyController {
     }
 
     @RequestMapping("editPropertySubmit.do")
-    public String editPropertySubmit(Integer propertyId,
-                                     @ModelAttribute(value = "item") Property property) throws Exception {
+    public String editPropertySubmit(@ModelAttribute(value = "item") Property property) throws Exception {
         propertyService.updateByPrimaryKeySelective(property);
         return "redirect:listProperty.do";
     }

@@ -119,4 +119,9 @@
   <select id="selectListEquipment" resultMap="BaseResultMap" parameterType="com.xtf.po.Equipment">
     select * from equipment
   </select>
+
+  <select id="selectSumForCost" resultType="float">
+    select sum(equipment_cost) from equipment
+  </select>
+
 </mapper>

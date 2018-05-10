@@ -180,7 +180,7 @@
     select * from property
   </select>
 
-  <select id="selectByPropertyNum" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="selectByPropertyNum" resultMap="BaseResultMap" parameterType="String">
     select * from property
     where property_num = #{propertyNum,jdbcType=VARCHAR}
   </select>
