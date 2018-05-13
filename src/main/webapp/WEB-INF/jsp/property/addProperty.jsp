@@ -48,8 +48,6 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 			</ul>
 		</div>

@@ -20,4 +20,8 @@ public interface PropertyMapper {
     List<Property> selectListPro(Property record);
 
     List<Property> selectByPropertyNum(String propertyNum);
+
+    float countCostByNameStateDate(Property property);
+
+    float countSumByNameDate(Property property);
 }

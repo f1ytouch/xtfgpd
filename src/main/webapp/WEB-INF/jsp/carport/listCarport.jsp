@@ -28,15 +28,9 @@
 				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						人事管理 <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-						<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
-					</ul>
-				</li>
+				<li><a href="${pageContext.request.contextPath }/showSUM.do">统计汇总</a></li>
+				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
 
 			</ul>
 		</div>
