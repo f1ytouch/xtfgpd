@@ -7,11 +7,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap-datepicker3.min.css">
+	<script src="/bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.zh-CN.min.js"></script>
 	<script>
 
         $(function () {
@@ -32,9 +35,14 @@
                     energyCompany: "required"
                 }
             });
+
+            $("#date1 input").datepicker({
+                format: "yyyy-mm-dd",
+                language: "zh-CN"
+            });
         });
 	</script>
-<title>添加电费单</title>
+<title>添加设备</title>
 
 </head>
 <body>
@@ -45,8 +53,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/listWater.do">水费管理</a></li>
-				<li class="active"><a href="${pageContext.request.contextPath }/listEnergy.do">电费管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 			</ul>
 		</div>
@@ -57,66 +64,52 @@
 	</div>
 </nav>
 
-<form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/insertEnergy.do" method="post">
+<form id="editForm" class="form-horizontal" action="${pageContext.request.contextPath }/insertEquipment.do" method="post">
 	<div class="container">
 		<div class="panel panel-success">
 			<div class="panel-heading">
-				<h3 class="panel-title">添加电费单</h3>
+				<h3 class="panel-title">添加公共设施</h3>
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">门牌号</label>
+					<label  class="col-sm-2 control-label">设施名称</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyNum" value="${item.energyNum }" placeholder="门牌号">
+						<input type="text" class="form-control" name="equipmentName" value="${item.equipmentName }" placeholder="设施名称">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">单价</label>
+					<label  class="col-sm-2 control-label">费用</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyUnitcost" value="${item.energyUnitcost }" placeholder="单价">
+						<input type="text" class="form-control" name="equipmentCost" value="${item.equipmentCost }" placeholder="费用">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">使用总量</label>
+					<label  class="col-sm-2 control-label">采购人</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energySum" value="${item.energySum }" placeholder="使用总量">
+						<input type="text" class="form-control" name="equipmentMan" value="${item.equipmentMan }" placeholder="采购人">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">开始时间</label>
+					<label  class="col-sm-2 control-label">供应商</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyUsedate" value="${item.energyUsedate }" placeholder="开始时间">
+						<input type="text" class="form-control" name="equipmentSupplier" value="${item.equipmentSupplier }" placeholder="供应商">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">结束时间</label>
+					<label  class="col-sm-2 control-label">联系电话</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyStopdate" value="${iitem.energyStopdate }" placeholder="结束时间">
+						<input type="text" class="form-control" name="equipmentPhone" value="${iitem.equipmentPhone }" placeholder="联系电话">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">支付状态</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyState" value="${item.energyState }" placeholder="支付状态">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">供电公司</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyCompany" value="${item.energyCompany }" placeholder="供电公司">
-					</div>
-					<span class="col-sm-4"></span>
-				</div>
-				<div class="form-group">
-					<label  class="col-sm-2 control-label">备注</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" name="energyRemark" value="${item.energyRemark }" placeholder="备注">
+					<label  class="col-sm-2 control-label">购入时间</label>
+					<div class="col-sm-6" id="date1">
+						<input type="text" class="form-control" name="equipmentTime" value="${item.equipmentTime }" placeholder="购入时间">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

@@ -17,7 +17,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">物业收费管理系统</a>
+			<a class="navbar-brand" href="#">小区物业收费管理系统</a>
 		</div>
 
 		<ul class="nav navbar-nav navbar-right">
@@ -35,9 +35,9 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">门牌号</label>
+					<label  class="col-sm-2 control-label">房产编号</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsNum" value="${item.repairsNum }" placeholder="门牌号">
+						<input type="text" class="form-control" name="repairsNum" value="${item.repairsNum }" placeholder="房产编号">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
@@ -77,9 +77,9 @@
 					<%--<span class="col-sm-4"></span>--%>
 				<%--</div>--%>
 				<div class="form-group">
-					<label  class="col-sm-2 control-label">备注</label>
+					<label  class="col-sm-2 control-label">联系电话</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="repairsRemark" value="${item.repairsRemark }" placeholder="备注">
+						<input type="text" class="form-control" name="repairsRemark" value="${item.repairsRemark }" placeholder="联系电话">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

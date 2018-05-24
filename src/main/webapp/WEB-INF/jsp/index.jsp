@@ -43,7 +43,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>欢迎</strong> 使用小区物业收费管理系统</h1>
+                    <h1><strong>欢迎</strong> 使用小区物业管理系统</h1>
                     <div class="description">
                         <p>
                             优质服务，欢迎入住。
@@ -67,11 +67,13 @@
                         <form role="form" action="login.do" method="post" class="login-form">
                             <div class="form-group">
                                 <label class="sr-only" >Username</label>
-                                <input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                <input type="text" name="username" placeholder="Username..."
+                                       class="form-username form-control" id="form-username">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" >Password</label>
-                                <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                <input type="password" name="password" placeholder="Password..."
+                                       class="form-password form-control" id="form-password">
                             </div>
                             <button type="submit" class="btn">登录</button>
                         </form>

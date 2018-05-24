@@ -15,9 +15,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap-datepicker3.min.css">
     <script src="/bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="/bootstrap/js/jquery.validate.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.zh-CN.min.js"></script>
 
 	<script>
         jQuery.validator.addMethod("isMobile", function(value, element) {
@@ -119,6 +122,11 @@
                     }
                 }
             });
+
+            $("#dateformat input").datepicker({
+				format: "yyyy-mm-dd",
+				language: "zh-CN"
+			});
         });
 
 
@@ -130,7 +138,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">物业收费管理系统</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -170,7 +178,13 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">性别</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="sex" value="${item.sex }" placeholder="性别">
+						<%--<input type="text" class="form-control" name="sex" value="${item.sex }" placeholder="性别">--%>
+							<label class="radio-inline">
+								<input type="radio" name="sex" value="男" checked>男
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="sex" value="女">女
+							</label>
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
@@ -183,7 +197,7 @@
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">入住时间</label>
-					<div class="col-sm-6">
+					<div class="col-sm-6" id="dateformat">
 						<input type="text" class="form-control" name="regtime" value="${item.regtime }" placeholder="入住时间">
 					</div>
 					<span class="col-sm-4"></span>

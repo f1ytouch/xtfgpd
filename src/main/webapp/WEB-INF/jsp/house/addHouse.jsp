@@ -34,7 +34,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">物业收费管理系统</a>
+			<a class="navbar-brand" href="#">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -79,14 +79,28 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">单元号</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="houseDanyuanhao" value="${item.houseDanyuanhao }" placeholder="单元号">
+						<%--<input type="text" class="form-control" name="houseDanyuanhao" value="${item.houseDanyuanhao }" placeholder="单元号">--%>
+							<select class="form-control" name="houseDanyuanhao" >
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">户型</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="houseType" value="${item.houseType }" placeholder="户型">
+						<%--<input type="text" class="form-control" name="houseType" value="${item.houseType }" placeholder="户型">--%>
+							<label class="radio-inline">
+								<input type="radio" name="houseType" value="三房两厅" checked="">三房两厅
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="houseType" value="四房两厅" checked>四房两厅
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="houseType" value="五房两厅">五房两厅
+							</label>
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
@@ -100,7 +114,13 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">状态</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="houseState" value="${item.houseState }" placeholder="状态">
+						<%--<input type="text" class="form-control" name="houseState" value="${item.houseState }" placeholder="状态">--%>
+							<label class="radio-inline">
+								<input type="radio" name="houseState" value="已入住" checked="">已入住
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="houseState" value="销售中">销售中
+							</label>
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

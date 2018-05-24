@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ixuc
-  Date: 2018/2/5
-  Time: 21:48
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -13,15 +6,12 @@
 <html>
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/bootstrap/js/jquery-3.3.1.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-
-
-
-<title>查询商品列表</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+<title>设备列表</title>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -31,10 +21,10 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listHouse.do">房产信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
@@ -51,78 +41,60 @@
 	</div>
 </nav>
 
-<form action="${pageContext.request.contextPath }/user/listUser.do" method="post">
-
-
 	<div class="container">
 
 		<div class="row">
-			<form action="${pageContext.request.contextPath }/user/searchUser.do" method="post">
-				<div class="col-sm-3">
-					<div class="input-group">
-						<span class="input-group-addon" >房产编号</span>
-						<input type="text" class="form-control"  name="num" >
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="input-group">
-						<span class="input-group-addon" >姓名</span>
-						<input type="text" class="form-control"  name="username" >
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="input-group">
-						<span class="input-group-addon" >手机</span>
-						<input type="text" class="form-control"  name="cellphone" >
-					</div>
-				</div>
-				<div class="col-sm-1">
 
+			<div class="col-sm-3 col-sm-offset-8">
+				<div class="from-group">
+					<form action="${pageContext.request.contextPath }/" method="post">
+						<div class="input-group">
+							<input input type="text" name="energyNum" placeholder="" class="input-sm form-control">
+							<div class="input-group-btn">
+								<button class="btn btn-sm btn-info" type="submit">
+									Search
+								</button>
+							</div>
+						</div>
+					</form>
 				</div>
+			</div>
 
-
-				<div class="col-sm-2 ">
-					<button class="btn btn-sm btn-info" type="submit">
-						Search
-					</button>
-					<a href="${pageContext.request.contextPath }/user/addUser.do" class="btn btn-primary btn-sm">添加</a>
-				</div>
-			</form>
+			<div class="col-sm-1">
+				<a href="${pageContext.request.contextPath }/addEquipment.do" class="btn btn-primary btn-sm">添加</a>
+			</div>
 		</div>
 
 		<div class="panel panel-success">
 			<div class="panel-heading">
-				<h3 class="panel-title">业主列表</h3>
+				<h3 class="panel-title">公共设施信息列表</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-striped table-bordered table-hover table-condensed">
 					<thead>
 					<tr>
 						<th>编号</th>
-						<th>房产编号</th>
-						<th>业主姓名</th>
-						<th>身份证</th>
-						<th>入住时间</th>
-						<th>联系方式</th>
-						<th>备注</th>
-						<th>操作</th>
+						<th>设施名称</th>
+						<th>费用</th>
+						<th>采购人</th>
+						<th>供应商</th>
+						<th>联系电话</th>
+						<th>购入时间</th>
 					</tr>
 					</thead>
 					<tbody>
 
-					<c:forEach items="${userList }" var="item">
+					<c:forEach items="${equip }" var="item">
 						<tr>
-							<td>${item.id}</td>
-							<td>${item.num }</td>
-							<td>${item.username}</td>
-							<td>${item.idcard }</td>
-							<td><fmt:formatDate value="${item.regtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-							<td>${item.cellphone }</td>
-							<td>${item.remark }</td>
-							<td><a href="${pageContext.request.contextPath }/user/viewUser/${item.id}">详情</a></td>
-							<td><a class="btn btn-success btn-sm glyphicon glyphicon-pencil" href="${pageContext.request.contextPath }/user/editUser.do?id=${item.id}">修改</a></td>
-							<td><a class="btn btn-danger btn-sm glyphicon glyphicon-trash" href="${pageContext.request.contextPath }/user/deleteUser.do?id=${item.id}">删除</a></td>
-
+							<td>${item.equipmentId }</td>
+							<td>${item.equipmentName }</td>
+							<td>${item.equipmentCost}</td>
+							<td>${item.equipmentMan }</td>
+							<td>${item.equipmentSupplier }</td>
+							<td>${item.equipmentPhone }</td>
+							<td>${item.equipmentTime}</td>
+							<td><a class="btn btn-success btn-sm glyphicon glyphicon-pencil" href="${pageContext.request.contextPath }/editEquipment.do?id=${item.equipmentId}">修改</a></td>
+							<td><a class="btn btn-danger btn-sm glyphicon glyphicon-trash" href="${pageContext.request.contextPath }/deleteEquipment.do?id=${item.equipmentId}">删除</a></td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -154,7 +126,6 @@
 			</div>
 		</div>
 	</div>
-</form>
 </body>
 
 </html>

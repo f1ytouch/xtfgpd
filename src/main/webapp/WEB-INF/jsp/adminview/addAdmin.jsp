@@ -37,7 +37,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">物业收费管理系统</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -77,7 +77,13 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">角色</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="roleid" value="${item.roleid }" placeholder="角色">
+						<%--<input type="text" class="form-control" name="roleid" value="${item.roleid }" placeholder="角色">--%>
+							<label class="radio-inline">
+								<input type="radio" name="roleid" value="1" checked>系统管理员
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="roleid" value="0">普通用户
+							</label>
 					</div>
 					<span class="col-sm-4"></span>
 				</div>

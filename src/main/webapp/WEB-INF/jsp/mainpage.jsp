@@ -25,7 +25,7 @@
         <div>
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/listHouse.do">房产信息管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/showHouseByPage.do">房产信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
@@ -38,7 +38,8 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
-            <li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+            <li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out">
+            </span> 注销</a></li>
         </ul>
     </div>
 </nav>

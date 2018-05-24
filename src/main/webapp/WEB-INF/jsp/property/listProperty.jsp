@@ -17,7 +17,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">物业收费管理系统</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -44,23 +44,57 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-sm-9 m-b-xs">
-				<a href="${pageContext.request.contextPath }/addProperty.do" class="btn btn-primary btn-sm">添加</a>
-			</div>
-			<div class="col-sm-3">
-				<div class="from-group">
-					<form action="${pageContext.request.contextPath }/selectByProNum.do" method="post">
+
+			<%--<div class="col-sm-3 col-sm-offset-8">--%>
+				<%--<div class="from-group">--%>
+					<%--<form action="${pageContext.request.contextPath }/selectByProNum.do" method="post">--%>
+						<%--<div class="input-group">--%>
+							<%--<input input type="text" name="propertyNum" placeholder="输入门牌号" class="input-sm form-control">--%>
+							<%--<div class="input-group-btn">--%>
+								<%--<button class="btn btn-sm btn-info" type="submit">--%>
+									<%--Search--%>
+								<%--</button>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+					<%--</form>--%>
+				<%--</div>--%>
+			<%--</div>--%>
+
+			<%--<div class="col-sm-1">--%>
+				<%--<a href="${pageContext.request.contextPath }/addProperty.do" class="btn btn-primary btn-sm">添加</a>--%>
+			<%--</div>--%>
+
+				<form action="${pageContext.request.contextPath }/selectByProNum.do" method="post">
+					<div class="col-sm-3">
 						<div class="input-group">
-							<input input type="text" name="propertyNum" placeholder="输入门牌号" class="input-sm form-control">
-							<div class="input-group-btn">
-								<button class="btn btn-sm btn-primary" type="submit">
-									Search
-								</button>
-							</div>
+							<span class="input-group-addon" >房产编号</span>
+							<input type="text" class="form-control"  name="propertyNum" >
 						</div>
-					</form>
-				</div>
-			</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon" >项目名</span>
+							<input type="text" class="form-control"  name="propertyName" >
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon" >支付状态</span>
+							<input type="text" class="form-control"  name="propertyState" >
+						</div>
+					</div>
+					<div class="col-sm-1">
+
+					</div>
+
+
+					<div class="col-sm-2 ">
+						<button class="btn btn-sm btn-info" type="submit">
+							Search
+						</button>
+						<a href="${pageContext.request.contextPath }/user/addUser.do" class="btn btn-primary btn-sm">添加</a>
+					</div>
+				</form>
 		</div>
 
 		<div class="panel panel-success">
@@ -103,8 +137,8 @@
 							<td>${item.propertyWay}</td>
 							<td>${item.propertyRemark}</td>
 
-							<td><a href="${pageContext.request.contextPath }/editProperty.do?id=${item.propertyId}">修改</a></td>
-							<td><a href="${pageContext.request.contextPath }/deleteProperty.do?id=${item.propertyId}">删除</a></td>
+							<td><a class="btn btn-success btn-sm glyphicon glyphicon-check" href="${pageContext.request.contextPath }/editProperty.do?id=${item.propertyId}">确认收款</a></td>
+							<td><a class="btn btn-danger btn-sm glyphicon glyphicon-trash" href="${pageContext.request.contextPath }/deleteProperty.do?id=${item.propertyId}">删除</a></td>
 
 						</tr>
 					</c:forEach>
@@ -112,7 +146,101 @@
 				</table>
 			</div>
 		</div>
+
+
+		<div class="row">
+
+			<!-- 分页文字信息 -->
+			<div class="col-sm-6">
+				当前${page.pageNow}页,总${page.totalPageCount}页,总${page.totalCount}条记录
+			</div>
+			<!-- 分页条信息 -->
+			<div class="col-sm-6">
+
+				<ul class="pagination">
+					<li><a href="${pageContext.request.contextPath }/">首页</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+
+					<li><a href="${pageContext.request.contextPath }/ ">末页</a></li>
+				</ul>
+
+			</div>
+		</div>
 	</div>
+
+<!-- 模态框（Modal） -->
+<form method="post" action="${pageContext.request.contextPath }/editPropertySubmit.do" method="post" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="btn-danger modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						模态框（Modal）标题
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="bs-example bs-example-form" role="form">
+						<div class="form-group">
+							<label  class="col-sm-2 control-label">支付状态</label>
+							<div class="col-sm-6">
+								<%--<input type="text" class="form-control" name="propertyState" value="${item.propertyState }" placeholder="支付状态">--%>
+								<label class="radio-inline">
+									<input type="radio" name="propertyState" value="已支付" checked="">已支付
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="propertyState" value="未支付">未支付
+								</label>
+							</div>
+							<span class="col-sm-4"></span>
+						</div>
+						<div class="form-group">
+							<label  class="col-sm-2 control-label">更新时间</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="propertyChargedate" value="${item.propertyChargedate }" placeholder="更新时间">
+							</div>
+							<span class="col-sm-4"></span>
+						</div>
+						<div class="form-group">
+							<label  class="col-sm-2 control-label">收款人</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="propertyPayee" value="${item.propertyPayee }" placeholder="收款人">
+							</div>
+							<span class="col-sm-4"></span>
+						</div>
+						<div class="form-group">
+							<label  class="col-sm-2 control-label">收款方式</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="propertyWay" value="${item.propertyWay }" placeholder="收款方式">
+							</div>
+							<span class="col-sm-4"></span>
+						</div>
+						<div class="form-group">
+							<label  class="col-sm-2 control-label">备注</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="propertyRemark" value="${item.propertyRemark }" placeholder="备注">
+							</div>
+							<span class="col-sm-4"></span>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="submit" class="btn btn-primary">
+						提交更改
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
 </body>
 
 </html>

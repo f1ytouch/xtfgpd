@@ -24,11 +24,10 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li><a href="${pageContext.request.contextPath }/userview/tolistWater.do">我的水费信息</a></li>
-                <li><a href="${pageContext.request.contextPath }/userview/tolistEnergy.do">我的电费信息</a></li>
-                <li><a href="${pageContext.request.contextPath }/userview/tolistPro.do">我的物业费信息</a></li>
+                <li><a href="${pageContext.request.contextPath }/userview/tolistPro.do">物业收费信息</a></li>
                 <li><a href="${pageContext.request.contextPath }/userview/tolistRepairs.do">维修记录</a></li>
                 <li><a href="${pageContext.request.contextPath }/userview/tolistCom.do">投诉</a></li>
+                <li><a href="${pageContext.request.contextPath }/">个人信息管理</a></li>
             </ul>
         </div>
         <ul class="nav navbar-nav navbar-right">

@@ -7,11 +7,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap-datepicker3.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
 	<script src="/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.zh-CN.min.js"></script>
 	<script>
         jQuery.validator.addMethod("isMobile", function(value, element) {
             var length = value.length;
@@ -31,6 +34,16 @@
 
                 }
             });
+
+            $("#date1 input").datepicker({
+				format: "yyyy-mm-dd",
+				language: "zh-CN"
+			});
+
+            $("#date2 input").datepicker({
+                format: "yyyy-mm-dd",
+                language: "zh-CN"
+            });
         });
 	</script>
 <title>添加员工</title>
@@ -40,7 +53,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">物业收费管理系统</a>
+			<a class="navbar-brand" href="#">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -92,14 +105,14 @@
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">启用时间</label>
-					<div class="col-sm-6">
+					<div class="col-sm-6" id="date1">
 						<input type="text" class="form-control" name="carportUsedate" value="${item.carportUsedate }" placeholder="启用时间">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">停用时间</label>
-					<div class="col-sm-6">
+					<div class="col-sm-6" id="date2">
 						<input type="text" class="form-control" name="carportStopdate" value="${item.carportStopdate }" placeholder="停用时间">
 					</div>
 					<span class="col-sm-4"></span>

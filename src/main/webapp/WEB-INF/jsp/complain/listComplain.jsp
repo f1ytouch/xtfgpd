@@ -17,7 +17,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">物业收费管理系统</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -44,22 +44,24 @@
 
 
 		<div class="row">
-			<div class="col-sm-9 m-b-xs">
-				<a href="${pageContext.request.contextPath }/addComplain.do" class="btn btn-primary btn-sm">添加</a>
-			</div>
-			<div class="col-sm-3">
+
+			<div class="col-sm-3 col-sm-offset-8">
 				<div class="from-group">
 					<form action="${pageContext.request.contextPath }/selectBycomplainNum.do" method="post">
 						<div class="input-group">
 							<input input type="text" name="complainNum" placeholder="输入门牌号" class="input-sm form-control">
 							<div class="input-group-btn">
-								<button class="btn btn-sm btn-primary" type="submit">
+								<button class="btn btn-sm btn-info" type="submit">
 									Search
 								</button>
 							</div>
 						</div>
 					</form>
 				</div>
+			</div>
+
+			<div class="col-sm-1">
+				<a href="${pageContext.request.contextPath }/addComplain.do" class="btn btn-primary btn-sm">添加</a>
 			</div>
 		</div>
 
@@ -95,13 +97,37 @@
 							<td>${item.complainState }</td>
 							<td>${item.complainRemark}</td>
 
-							<td><a href="${pageContext.request.contextPath }/editComplain.do?id=${item.complainId}">修改</a></td>
-							<td><a href="${pageContext.request.contextPath }/deleteComplain.do?id=${item.complainId}">删除</a></td>
+							<td><a class="btn btn-success btn-sm glyphicon glyphicon-pencil" href="${pageContext.request.contextPath }/editComplain.do?id=${item.complainId}">修改</a></td>
+							<td><a class="btn btn-danger btn-sm glyphicon glyphicon-trash" href="${pageContext.request.contextPath }/deleteComplain.do?id=${item.complainId}">删除</a></td>
 
 						</tr>
 					</c:forEach>
 					</tbody>
 				</table>
+			</div>
+		</div>
+
+
+		<div class="row">
+
+			<!-- 分页文字信息 -->
+			<div class="col-sm-6">
+				当前${page.pageNow}页,总${page.totalPageCount}页,总${page.totalCount}条记录
+			</div>
+			<!-- 分页条信息 -->
+			<div class="col-sm-6">
+
+				<ul class="pagination">
+					<li><a href="${pageContext.request.contextPath }/">首页</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+
+					<li><a href="${pageContext.request.contextPath }/ ">末页</a></li>
+				</ul>
+
 			</div>
 		</div>
 	</div>

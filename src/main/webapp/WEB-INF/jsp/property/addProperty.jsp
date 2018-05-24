@@ -8,10 +8,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap-datepicker3.min.css">
 	<script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
 	<script src="/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="/bootstrap/js/messages_zh.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.min.js"></script>
+	<script src="/bootstrap/js/bootstrap-datepicker.zh-CN.min.js"></script>
 	<script>
 
         $(function () {
@@ -35,6 +38,21 @@
                     }
                 }
             });
+
+            $("#date1 input").datepicker({
+				format: "yyyy-mm-dd",
+				language: "zh-CN"
+			});
+
+            $("#date2 input").datepicker({
+                format: "yyyy-mm-dd",
+                language: "zh-CN"
+            });
+
+            $("#date3 input").datepicker({
+                format: "yyyy-mm-dd",
+                language: "zh-CN"
+            });
         });
 	</script>
 <title>添加物业单</title>
@@ -44,7 +62,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">物业收费管理系统</a>
+			<a class="navbar-brand" href="#">小区物业收费管理系统</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -95,14 +113,14 @@
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">开始时间</label>
-					<div class="col-sm-6">
+					<div class="col-sm-6" id="date1">
 						<input type="text" class="form-control" name="propertyUsedate" value="${iitem.propertyUsedate }" placeholder="开始时间">
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">结束时间</label>
-					<div class="col-sm-6">
+					<div class="col-sm-6" id="date2">
 						<input type="text" class="form-control" name="propertyStopdate" value="${item.propertyStopdate }" placeholder="结束时间">
 					</div>
 					<span class="col-sm-4"></span>
@@ -110,13 +128,19 @@
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">支付状态</label>
 					<div class="col-sm-6">
-						<input type="text" class="form-control" name="propertyState" value="${item.propertyState }" placeholder="支付状态">
+						<%--<input type="text" class="form-control" name="propertyState" value="${item.propertyState }" placeholder="支付状态">--%>
+							<label class="radio-inline">
+								<input type="radio" name="propertyState" value="已支付" checked>已支付
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="propertyState" value="未支付">未支付
+							</label>
 					</div>
 					<span class="col-sm-4"></span>
 				</div>
 				<div class="form-group">
 					<label  class="col-sm-2 control-label">更新时间</label>
-					<div class="col-sm-6">
+					<div class="col-sm-6" id="date3">
 						<input type="text" class="form-control" name="propertyChargedate" value="${item.propertyChargedate }" placeholder="更新时间">
 					</div>
 					<span class="col-sm-4"></span>
