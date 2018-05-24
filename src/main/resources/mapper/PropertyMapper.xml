@@ -176,9 +176,9 @@
     where property_id = #{propertyId,jdbcType=INTEGER}
   </update>
 
-  <select id="selectListPro" resultMap="BaseResultMap" parameterType="com.xtf.po.Property">
-    select * from property
-  </select>
+  <!--<select id="selectListPro" resultMap="BaseResultMap" parameterType="com.xtf.po.Property">-->
+    <!--select * from property-->
+  <!--</select>-->
 
   <select id="selectByPropertyNum" resultMap="BaseResultMap" parameterType="String">
     select * from property
@@ -197,5 +197,37 @@
     where property_name = #{propertyName,jdbcType=VARCHAR}
       and property_chargedate = #{propertyChargedate,jdbcType=VARCHAR}
   </select>
+
+  <select id="getPropertyCount" resultType="long">
+    select count(*) from property
+  </select>
+
+  <select id="selectPropertyByPage" resultMap="BaseResultMap">
+    select * from property limit #{startPos},#{pageSize}
+
+  </select>
+
+  <select id="selectListPro" parameterType="com.xtf.po.Property" resultMap="BaseResultMap">
+    select * from property
+    <where>
+      <include refid="where_pro"/>
+    </where>
+  </select>
+
+  <sql id="where_pro">
+
+      <if test="propertyName!=null">
+        and property_name = #{propertyName,jdbcType=VARCHAR}
+      </if>
+      <if test="propertyState!=null">
+      and property_state = #{propertyState,jdbcType=VARCHAR}
+      </if>
+        <if test="propertyNum!=null">
+          and property_num = #{propertyNum,jdbcType=VARCHAR}
+        </if>
+      <if test="propertyChargedate!=null">
+        property_chargedate = #{propertyChargedate,jdbcType=VARCHAR}
+      </if>
+  </sql>
 
 </mapper>

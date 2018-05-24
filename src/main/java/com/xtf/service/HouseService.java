@@ -1,7 +1,9 @@
 package com.xtf.service;
 
 import com.xtf.po.House;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface HouseService {
@@ -19,5 +21,7 @@ public interface HouseService {
 
     List<House> selectListHouse(House record);
 
-    House selectByHouseNum(Integer houseNum);
+    House selectByHouseNum(String houseId);
+
+    void showHouseByPage(HttpServletRequest request, Model model);
 }

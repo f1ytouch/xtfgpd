@@ -1,6 +1,7 @@
 package com.xtf.dao;
 
 import com.xtf.po.House;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,5 +20,10 @@ public interface HouseMapper {
 
     List<House> selectListHouse(House record);
 
-    House selectByHouseNum(Integer houseNum);
+    House selectByHouseNum(String houseId);
+
+    public List<House> selectHouseByPage(@Param(value = "startPos") Integer startPos,
+                                       @Param(value = "pageSize") Integer pageSize);
+
+    public long getHouseCount();
 }

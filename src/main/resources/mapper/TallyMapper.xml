@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtf.dao.TallyMapper" >
+  <resultMap id="BaseResultMap" type="com.xtf.po.Tally" >
+    <id column="tally_id" property="tallyId" jdbcType="INTEGER" />
+    <result column="tally_name" property="tallyName" jdbcType="VARCHAR" />
+    <result column="tally_fact" property="tallyFact" jdbcType="REAL" />
+    <result column="tally_must" property="tallyMust" jdbcType="REAL" />
+    <result column="tally_time" property="tallyTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tally_id, tally_name, tally_fact, tally_must, tally_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tally
+    where tally_id = #{tallyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tally
+    where tally_id = #{tallyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xtf.po.Tally" >
+    insert into tally (tally_id, tally_name, tally_fact, 
+      tally_must, tally_time)
+    values (#{tallyId,jdbcType=INTEGER}, #{tallyName,jdbcType=VARCHAR}, #{tallyFact,jdbcType=REAL}, 
+      #{tallyMust,jdbcType=REAL}, #{tallyTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xtf.po.Tally" >
+    insert into tally
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tallyId != null" >
+        tally_id,
+      </if>
+      <if test="tallyName != null" >
+        tally_name,
+      </if>
+      <if test="tallyFact != null" >
+        tally_fact,
+      </if>
+      <if test="tallyMust != null" >
+        tally_must,
+      </if>
+      <if test="tallyTime != null" >
+        tally_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tallyId != null" >
+        #{tallyId,jdbcType=INTEGER},
+      </if>
+      <if test="tallyName != null" >
+        #{tallyName,jdbcType=VARCHAR},
+      </if>
+      <if test="tallyFact != null" >
+        #{tallyFact,jdbcType=REAL},
+      </if>
+      <if test="tallyMust != null" >
+        #{tallyMust,jdbcType=REAL},
+      </if>
+      <if test="tallyTime != null" >
+        #{tallyTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtf.po.Tally" >
+    update tally
+    <set >
+      <if test="tallyName != null" >
+        tally_name = #{tallyName,jdbcType=VARCHAR},
+      </if>
+      <if test="tallyFact != null" >
+        tally_fact = #{tallyFact,jdbcType=REAL},
+      </if>
+      <if test="tallyMust != null" >
+        tally_must = #{tallyMust,jdbcType=REAL},
+      </if>
+      <if test="tallyTime != null" >
+        tally_time = #{tallyTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tally_id = #{tallyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xtf.po.Tally" >
+    update tally
+    set tally_name = #{tallyName,jdbcType=VARCHAR},
+      tally_fact = #{tallyFact,jdbcType=REAL},
+      tally_must = #{tallyMust,jdbcType=REAL},
+      tally_time = #{tallyTime,jdbcType=VARCHAR}
+    where tally_id = #{tallyId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -131,11 +131,36 @@
     select * from house
   </select>
 
-  <select id="selectByHouseNum" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="selectHouseByPage" resultMap="BaseResultMap">
+    select * from house limit #{startPos},#{pageSize}
+  </select>
+
+  <select id="selectByHouseNum" resultMap="BaseResultMap" parameterType="String">
     select
     <include refid="Base_Column_List" />
     from house
-    where house_num = #{houseNum,jdbcType=INTEGER}
+      where house_id = #{houseId,jdbcType=VARCHAR}
+    <!--<where>-->
+      <!--<include refid="query_house"/>-->
+    <!--</where>-->
   </select>
+
+  <select id="getHouseCount" resultType="long">
+    select count(*) from house
+  </select>
+
+
+
+  <!--<sql id="query_house">-->
+    <!--<if test="house!=null">-->
+      <!--<if test="house.houseNum!=null">-->
+        <!--and houseNum = #{house.houseNum}-->
+      <!--</if>-->
+      <!--<if test="house.houseId!=null">-->
+        <!--and houseId = #{house.houseId}-->
+      <!--</if>-->
+    <!--</if>-->
+
+  <!--</sql>-->
 
 </mapper>

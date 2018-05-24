@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +26,15 @@ public class HouseController {
         return "/house/listHouse";
     }
 
+    @RequestMapping("showHouseByPage.do")
+    public String showHouseByPage(HttpServletRequest request, Model model) {
+        houseService.showHouseByPage(request,model);
+        return "/house/listHouse";
+    }
+
     @RequestMapping("selectByHouseNum.do")
-    public String selectByHouseNum(Model model, Integer houseNum) throws Exception {
-        House se = houseService.selectByHouseNum(houseNum);
+    public String selectByHouseNum(Model model, String houseId) throws Exception {
+        House se = houseService.selectByHouseNum(houseId);
         model.addAttribute("item", se);
         return "/house/search";
     }

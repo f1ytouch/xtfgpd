@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,17 @@ public class PropertyController {
     @Autowired
     private PropertyService propertyService;
 
-    @RequestMapping("listProperty.do")
+    @RequestMapping("searchProperty.do")
     public String listProperty(Model model, Property property) throws Exception {
         List<Property> list = new ArrayList<>();
         list = propertyService.selectListPro(property);
         model.addAttribute("pro",list);
+        return "/property/listProperty";
+    }
+
+    @RequestMapping("showPropertyByPage.do")
+    public String showPropertyByPage(HttpServletRequest request, Model model) {
+        propertyService.showPropertyByPage(request,model);
         return "/property/listProperty";
     }
 

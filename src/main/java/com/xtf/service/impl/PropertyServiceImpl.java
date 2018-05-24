@@ -3,9 +3,12 @@ package com.xtf.service.impl;
 import com.xtf.dao.PropertyMapper;
 import com.xtf.po.Property;
 import com.xtf.service.PropertyService;
+import com.xtf.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,5 +63,33 @@ public class PropertyServiceImpl implements PropertyService {
     @Override
     public List<Property> selectByPropertyNum(String propertyNum) {
         return propertyMapper.selectByPropertyNum(propertyNum);
+    }
+
+    @Override
+    public void showPropertyByPage(HttpServletRequest request, Model model) {
+
+        String pageNow = request.getParameter("pageNow");
+
+        Page page = null;
+
+        List<Property> list = new ArrayList<>();
+
+        int totalCount = (int) propertyMapper.getPropertyCount();
+
+        if (pageNow != null) {
+
+            page = new Page(totalCount,Integer.parseInt(pageNow));
+
+            list = propertyMapper.selectPropertyByPage(page.getStartPos(),page.getPageSize());
+        } else {
+
+            page = new Page(totalCount,1);
+
+            list = propertyMapper.selectPropertyByPage(page.getStartPos(),page.getPageSize());
+        }
+
+        model.addAttribute("pro",list);
+
+        model.addAttribute("page",page);
     }
 }

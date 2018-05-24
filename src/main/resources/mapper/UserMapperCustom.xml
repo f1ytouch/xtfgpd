@@ -16,6 +16,12 @@
             <if test="userCustom.id!=null">
                 and  id = #{userCustom.id}
             </if>
+            <if test="userCustom.num!=null">
+                and num = #{userCustom.num}
+            </if>
+            <if test="userCustom.cellphone!=null">
+                and cellphone = #{userCustom.cellphone}
+            </if>
 
         </if>
 

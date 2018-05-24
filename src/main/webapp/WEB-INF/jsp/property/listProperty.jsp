@@ -22,7 +22,7 @@
 		<div>
 			<ul class="nav navbar-nav">
 				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listHouse.do">房产信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/showHouseByPage.do">房产信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
@@ -64,7 +64,7 @@
 				<%--<a href="${pageContext.request.contextPath }/addProperty.do" class="btn btn-primary btn-sm">添加</a>--%>
 			<%--</div>--%>
 
-				<form action="${pageContext.request.contextPath }/selectByProNum.do" method="post">
+				<form action="${pageContext.request.contextPath }/searchProperty.do" method="post">
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon" >房产编号</span>
@@ -77,16 +77,18 @@
 							<input type="text" class="form-control"  name="propertyName" >
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<div class="input-group">
 							<span class="input-group-addon" >支付状态</span>
 							<input type="text" class="form-control"  name="propertyState" >
 						</div>
 					</div>
-					<div class="col-sm-1">
-
-					</div>
-
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <span class="input-group-addon" >更新时间</span>
+                            <input type="text" class="form-control"  name="propertyChargedate" >
+                        </div>
+                    </div>
 
 					<div class="col-sm-2 ">
 						<button class="btn btn-sm btn-info" type="submit">
@@ -158,14 +160,35 @@
 			<div class="col-sm-6">
 
 				<ul class="pagination">
-					<li><a href="${pageContext.request.contextPath }/">首页</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
+					<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=1">首页</a></li>
+					<c:choose>
+						<c:when test="${page.pageNow - 1 > 0}">
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=${page.pageNow - 1}">上一页</a></li>
+						</c:when>
+						<c:when test="${page.pageNow - 1 <= 0}">
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=1">上一页</a></li>
+						</c:when>
+					</c:choose>
+					<c:choose>
+						<c:when test="${page.totalPageCount==0}">
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=${page.pageNow}">下一页</a></li>
+						</c:when>
+						<c:when test="${page.pageNow + 1 < page.totalPageCount}">
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=${page.pageNow + 1}">下一页</a></li>
+						</c:when>
+						<c:when test="${page.pageNow + 1 >= page.totalPageCount}">
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=${page.totalPageCount}">下一页</a></li>
+						</c:when>
+					</c:choose>
 
-					<li><a href="${pageContext.request.contextPath }/ ">末页</a></li>
+					<c:choose>
+						<c:when test="${page.totalPageCount==0}">
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=${page.pageNow}">尾页</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do?pageNow=${page.totalPageCount}">尾页</a></li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 
 			</div>

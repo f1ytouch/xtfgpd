@@ -1,7 +1,9 @@
 package com.xtf.service;
 
 import com.xtf.po.Property;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface PropertyService {
@@ -20,4 +22,6 @@ public interface PropertyService {
     List<Property> selectListPro(Property record);
 
     List<Property> selectByPropertyNum(String propertyNum);
+
+    void showPropertyByPage(HttpServletRequest request, Model model);
 }

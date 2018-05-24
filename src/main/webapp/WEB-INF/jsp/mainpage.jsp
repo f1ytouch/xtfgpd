@@ -28,7 +28,7 @@
                 <li><a href="${pageContext.request.contextPath }/showHouseByPage.do">房产信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
+                <li><a href="${pageContext.request.contextPath }/showPropertyByPage.do">物业费管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/showSUM.do">统计汇总</a></li>

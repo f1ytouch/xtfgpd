@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>欢迎</strong> 使用小区物业收费管理系统</h1>
+                    <h1><strong>欢迎</strong> 使用小区收费物业管理系统</h1>
                     <div class="description">
                         <p>
                             优质服务，欢迎入住。

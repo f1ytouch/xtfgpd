@@ -1,6 +1,7 @@
 package com.xtf.dao;
 
 import com.xtf.po.Property;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -24,4 +25,10 @@ public interface PropertyMapper {
     float countCostByNameStateDate(Property property);
 
     float countSumByNameDate(Property property);
+
+    long getPropertyCount();
+
+    List<Property> selectPropertyByPage(@Param(value = "startPos") Integer startPos,
+                                        @Param(value = "pageSize") Integer pageSize);
+
 }
