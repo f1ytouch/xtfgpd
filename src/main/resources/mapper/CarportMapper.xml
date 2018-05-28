@@ -169,5 +169,13 @@
     </where>
   </select>
 
+  <select id="getCarportCount" resultType="long">
+    select count(*) from carport
+  </select>
+
+  <select id="selectCarportByPage" resultMap="BaseResultMap">
+    select * from carport limit #{startPos},#{pageSize}
+  </select>
+
 
 </mapper>

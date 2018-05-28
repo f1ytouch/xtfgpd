@@ -50,7 +50,7 @@
             });
 
             $("#date3 input").datepicker({
-                format: "yyyy-mm-dd",
+                format: "yyyy-mm",
                 language: "zh-CN"
             });
         });
@@ -66,7 +66,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/showPropertyByPage.do">物业费管理</a></li>
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-right">

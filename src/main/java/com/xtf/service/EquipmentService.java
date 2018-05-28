@@ -1,7 +1,9 @@
 package com.xtf.service;
 
 import com.xtf.po.Equipment;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface EquipmentService {
@@ -17,5 +19,5 @@ public interface EquipmentService {
 
     int updateByEquipmentId(Equipment record);
 
-    List<Equipment> findEquipmetList(Equipment equipment);
+    List<Equipment> showEquipmetByPage(HttpServletRequest request, Model model);
 }

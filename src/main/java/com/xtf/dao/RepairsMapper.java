@@ -1,6 +1,8 @@
 package com.xtf.dao;
 
 import com.xtf.po.Repairs;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface RepairsMapper {
@@ -16,7 +18,10 @@ public interface RepairsMapper {
 
     int updateByPrimaryKey(Repairs record);
 
-    List<Repairs> selectListRep(Repairs repairs);
+    List<Repairs> selectListRep(@Param(value = "startPos") Integer startPos,
+                                @Param(value = "pageSize") Integer pageSize);
 
     List<Repairs> selectByName(String repairsName);
+
+    long getCountRep();
 }

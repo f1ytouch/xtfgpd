@@ -6,10 +6,13 @@ import com.xtf.po.User;
 import com.xtf.po.UserCustom;
 import com.xtf.po.UserQueryVo;
 import com.xtf.service.UserService;
+import com.xtf.utils.Page;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +59,30 @@ public class UserServiceImpl implements UserService {
     @Override
     public void insertUser(UserCustom userCustom) throws Exception {
         userMapper.insertSelective(userCustom);
+    }
+
+    @Override
+    public void showUserByPage(HttpServletRequest request, Model model) {
+        String pageNow = request.getParameter("pageNow");
+
+        Page page = null;
+
+        List<User> list = new ArrayList<>();
+
+        int totalCount = (int) userMapper.getUserCount();
+
+        if (pageNow != null) {
+            page = new Page(totalCount,Integer.parseInt(pageNow));
+
+            list = userMapper.selectUserByPage(page.getStartPos(),page.getPageSize());
+        } else {
+            page = new Page(totalCount, 1);
+            list = userMapper.selectUserByPage(page.getStartPos(),page.getPageSize());
+        }
+
+        model.addAttribute("page",page);
+
+        model.addAttribute("userList",list);
     }
 
     public void setUserMapper(UserMapper userMapper) {

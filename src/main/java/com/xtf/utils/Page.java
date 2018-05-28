@@ -12,7 +12,7 @@ public class Page implements Serializable {
 
     private int pageNow = 1; //当前页数
 
-    private int pageSize = 8; //每页显示记录的条数
+    private int pageSize = 13; //每页显示记录的条数
 
     private int totalCount; //总的记录条数
 

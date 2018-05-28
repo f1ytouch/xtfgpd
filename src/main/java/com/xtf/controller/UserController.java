@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Controller
@@ -37,6 +38,12 @@ public class UserController  {
         userQueryVo.setUserCustom(userCustom);
         userList = userService.findUserList(userQueryVo);
         model.addAttribute("userList", userList);
+        return "/user/userList";
+    }
+
+    @RequestMapping("/showUserByPage.do")
+    public String showUserByPage(HttpServletRequest request, Model model) {
+        userService.showUserByPage(request, model);
         return "/user/userList";
     }
 

@@ -140,4 +140,17 @@
     remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectNumByName" parameterType="String" resultType="String">
+    select num from user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectUserByPage" resultMap="BaseResultMap">
+    select * from user limit #{startPos},#{pageSize}
+  </select>
+
+  <select id="getUserCount" resultType="long">
+    select count(*) from user
+  </select>
 </mapper>

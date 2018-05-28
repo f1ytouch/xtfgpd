@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -16,9 +17,8 @@ public class ComplainController {
     private ComplainService complainService;
 
     @RequestMapping("/listComplain.do")
-    public String listComplain(Model model, Complain complain) throws Exception {
-        List<Complain> list = complainService.findListCompain(complain);
-        model.addAttribute("complain", list);
+    public String listComplain(HttpServletRequest request, Model model) throws Exception {
+       complainService.findListCompain(request, model);
         return "/complain/listComplain";
     }
 

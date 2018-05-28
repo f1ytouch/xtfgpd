@@ -1,7 +1,9 @@
 package com.xtf.service;
 
 import com.xtf.po.Carport;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface CarportService {
@@ -19,4 +21,6 @@ public interface CarportService {
     int updateByPrimaryKey(Carport record);
 
     List<Carport> findListCarport(Carport record);
+
+    void showCarportByPage(HttpServletRequest request, Model model);
 }

@@ -48,7 +48,7 @@ public class PropertyController {
     @RequestMapping("insertProperty.do")
     public String insertPro(@ModelAttribute(value = "item") Property property) throws Exception {
         propertyService.insertSelective(property);
-        return "redirect:listProperty.do";
+        return "redirect:showPropertyByPage.do";
     }
 
     @RequestMapping("editProperty.do")
@@ -61,13 +61,13 @@ public class PropertyController {
     @RequestMapping("editPropertySubmit.do")
     public String editPropertySubmit(@ModelAttribute(value = "item") Property property) throws Exception {
         propertyService.updateByPrimaryKeySelective(property);
-        return "redirect:listProperty.do";
+        return "redirect:showPropertyByPage.do";
     }
 
     @RequestMapping("deleteProperty.do")
     public String deleteProperty(Integer id) throws Exception {
         propertyService.deleteByPrimaryKey(id);
-        return "redirect:listProperty.do";
+        return "redirect:showPropertyByPage.do";
     }
 
 

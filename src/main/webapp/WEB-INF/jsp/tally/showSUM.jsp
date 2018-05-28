@@ -64,31 +64,17 @@
 <title>列表</title>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="${pageContext.request.contextPath }/mainpage.do">小区物业收费管理系统</a>
-		</div>
-		<div>
-			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listHouse.do">房产信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
-				<li class="active"><a href="${pageContext.request.contextPath }/showSUM.do">统计汇总</a></li>
-				<li><a href="${pageContext.request.contextPath }/findListEmployee.do">员工信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/adminList.do">系统用户信息管理</a></li>
-			</ul>
-		</div>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span> 在线</a></li>
-			<li><a href="${pageContext.request.contextPath }/logout.do"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
-		</ul>
-	</div>
-</nav>
+
+<div class="container">
+	<ul class="nav nav-pills">
+		<li class="active"><a href="${pageContext.request.contextPath }/mainpage.do">返回</a></li>
+		<li><a href="${pageContext.request.contextPath }/showSUM.do">收费统计</a></li>
+		<li><a href="${pageContext.request.contextPath }/carportSUM.do">车位统计</a></li>
+		>
+
+	</ul>
+</div>
+
 
 <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
 

@@ -31,11 +31,11 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/user/showUserByPage.do">业主信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/showHouseByPage.do">房产信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/showCarportByPage.do">车位信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do">物业费管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/showSUM.do">统计汇总</a></li>
@@ -50,8 +50,6 @@
 		</ul>
 	</div>
 </nav>
-
-<form action="${pageContext.request.contextPath }/user/listUser.do" method="post">
 
 
 	<div class="container">
@@ -141,20 +139,41 @@
 			<div class="col-sm-6">
 
 				<ul class="pagination">
-					<li><a href="${pageContext.request.contextPath }/">首页</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
+					<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=1">首页</a></li>
+					<c:choose>
+						<c:when test="${page.pageNow - 1 > 0}">
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=${page.pageNow - 1}">上一页</a></li>
+						</c:when>
+						<c:when test="${page.pageNow - 1 <= 0}">
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=1">上一页</a></li>
+						</c:when>
+					</c:choose>
+					<c:choose>
+						<c:when test="${page.totalPageCount==0}">
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=${page.pageNow}">下一页</a></li>
+						</c:when>
+						<c:when test="${page.pageNow + 1 < page.totalPageCount}">
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=${page.pageNow + 1}">下一页</a></li>
+						</c:when>
+						<c:when test="${page.pageNow + 1 >= page.totalPageCount}">
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=${page.totalPageCount}">下一页</a></li>
+						</c:when>
+					</c:choose>
 
-					<li><a href="${pageContext.request.contextPath }/ ">末页</a></li>
+					<c:choose>
+						<c:when test="${page.totalPageCount==0}">
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=${page.pageNow}">尾页</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do?pageNow=${page.totalPageCount}">尾页</a></li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 
 			</div>
 		</div>
 	</div>
-</form>
+
 </body>
 
 </html>

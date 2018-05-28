@@ -1,7 +1,9 @@
 package com.xtf.service;
 
 import com.xtf.po.Complain;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface ComplainService {
@@ -17,7 +19,7 @@ public interface ComplainService {
 
     int updateByPrimaryKey(Complain record);
 
-    List<Complain> findListCompain(Complain record);
+    void findListCompain(HttpServletRequest request, Model model);
 
     List<Complain> selectBycomplainNum(Integer complainNum);
 }

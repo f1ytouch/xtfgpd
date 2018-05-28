@@ -1,6 +1,7 @@
 package com.xtf.dao;
 
 import com.xtf.po.Carport;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,9 @@ public interface CarportMapper {
     int updateByPrimaryKey(Carport record);
 
     List<Carport> findListCarport(Carport record);
+
+    long getCarportCount();
+
+    List<Carport> selectCarportByPage(@Param(value = "startPos") Integer startPos,
+                                      @Param(value = "pageSize") Integer pageSize);
 }

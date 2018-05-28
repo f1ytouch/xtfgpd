@@ -3,9 +3,12 @@ package com.xtf.service.impl;
 import com.xtf.dao.ComplainMapper;
 import com.xtf.po.Complain;
 import com.xtf.service.ComplainService;
+import com.xtf.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,15 +57,32 @@ public class ComplainServiceImpl implements ComplainService {
     }
 
     @Override
-    public List<Complain> findListCompain(Complain record) {
-        List<Complain> list = new ArrayList<>();
-        list = complainMapper.findListCompain(record);
-        return list;
+    public List<Complain> selectBycomplainNum(Integer complainNum) {
+        return complainMapper.selectBycomplainNum(complainNum);
     }
 
     @Override
-    public List<Complain> selectBycomplainNum(Integer complainNum) {
-        return complainMapper.selectBycomplainNum(complainNum);
+    public void findListCompain(HttpServletRequest request, Model model) {
+        String pageNow = request.getParameter("pageNow");
+
+        Page page = null;
+
+        List<Complain> list = new ArrayList<>();
+
+        int totalCount = (int) complainMapper.getCountComplain();
+
+        if (pageNow != null) {
+            page = new Page(totalCount,Integer.parseInt(pageNow));
+
+            list = complainMapper.findListCompain(page.getStartPos(),page.getPageSize());
+        } else {
+            page = new Page(totalCount, 1);
+            list = complainMapper.findListCompain(page.getStartPos(),page.getPageSize());
+        }
+
+        model.addAttribute("page",page);
+
+        model.addAttribute("complain",list);
     }
 
 

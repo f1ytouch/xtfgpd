@@ -83,6 +83,7 @@ public class HouseServiceImpl implements HouseService{
             list = houseMapper.selectHouseByPage(page.getStartPos(),page.getPageSize());
         } else {
             page = new Page(totalCount, 1);
+
             list = houseMapper.selectHouseByPage(page.getStartPos(),page.getPageSize());
         }
 

@@ -22,7 +22,7 @@ public interface PropertyMapper {
 
     List<Property> selectByPropertyNum(String propertyNum);
 
-    float countCostByNameStateDate(Property property);
+    float countCost(Property property);
 
     float countSumByNameDate(Property property);
 

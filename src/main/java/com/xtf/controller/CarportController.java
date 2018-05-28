@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -22,6 +23,12 @@ public class CarportController {
         carport.setCarportNum(carportNum);
         List<Carport> list = carportService.findListCarport(carport);
         model.addAttribute("car", list);
+        return "/carport/listCarport";
+    }
+
+    @RequestMapping("/showCarportByPage.do")
+    public String showCarportByPage(HttpServletRequest request, Model model) {
+        carportService.showCarportByPage(request, model);
         return "/carport/listCarport";
     }
 

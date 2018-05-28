@@ -116,8 +116,12 @@
     where equipment_id = #{equipmentId,jdbcType=INTEGER}
   </update>
 
-  <select id="selectListEquipment" resultMap="BaseResultMap" parameterType="com.xtf.po.Equipment">
-    select * from equipment
+  <select id="selectListEquipment" resultMap="BaseResultMap" >
+    select * from equipment limit #{startPos},#{pageSize}
+  </select>
+
+  <select id="getCountEquip" resultType="long">
+    select count(*) from equipment
   </select>
 
   <select id="selectSumForCost" resultType="float">

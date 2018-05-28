@@ -1,6 +1,9 @@
 package com.xtf.service;
 
 import com.xtf.po.Repairs;
+import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface RepairsService {
@@ -16,7 +19,7 @@ public interface RepairsService {
 
     int updateByall(Repairs record);
 
-    List<Repairs> selectListRep(Repairs repairs);
+    List<Repairs> selectListRep(HttpServletRequest request, Model model);
 
     public int updateRepairs(Integer id, Repairs record);
 

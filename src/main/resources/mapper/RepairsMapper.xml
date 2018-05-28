@@ -127,13 +127,17 @@
     where repairs_id = #{repairsId,jdbcType=INTEGER}
   </update>
 
-  <select id="selectListRep" parameterType="com.xtf.po.Repairs" resultMap="BaseResultMap">
-    select * from repairs
+  <select id="selectListRep" resultMap="BaseResultMap">
+    select * from repairs limit #{startPos},#{pageSize}
   </select>
 
   <select id="selectByName" parameterType="String" resultMap="BaseResultMap">
     select * from repairs
     where repairs_name = #{repairsName,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getCountRep" resultType="long">
+    select count(*) from repairs
   </select>
 
 </mapper>

@@ -27,7 +27,7 @@ public class TallyServiceImpl implements TallyService {
         property.setPropertyName("物业管理费");
         property.setPropertyChargedate("2018-05");
         property.setPropertyState("已支付");
-        float fact = propertyMapper.countCostByNameStateDate(property);
+        float fact = propertyMapper.countCost(property);
 
         Property property1 = new Property();
         property1.setPropertyName("物业管理费");
@@ -50,15 +50,15 @@ public class TallyServiceImpl implements TallyService {
         property.setPropertyName("物业管理费");
         property.setPropertyChargedate("2018-03");
         property.setPropertyState("已支付");
-        float one = propertyMapper.countCostByNameStateDate(property);
+        float one = propertyMapper.countCost(property);
 
         property.setPropertyChargedate("2018-04");
 
-        float two = propertyMapper.countCostByNameStateDate(property);
+        float two = propertyMapper.countCost(property);
 
         property.setPropertyChargedate("2018-05");
 
-        float three = propertyMapper.countCostByNameStateDate(property);
+        float three = propertyMapper.countCost(property);
 
         dateCount.setOne(one);
         dateCount.setTwo(two);
@@ -73,15 +73,15 @@ public class TallyServiceImpl implements TallyService {
         property1.setPropertyName("车位费月租");
         property1.setPropertyChargedate("2018-03");
         property1.setPropertyState("已支付");
-        float one1 = propertyMapper.countCostByNameStateDate(property1);
+        float one1 = propertyMapper.countCost(property1);
 
         property1.setPropertyChargedate("2018-04");
 
-        float two1 = propertyMapper.countCostByNameStateDate(property1);
+        float two1 = propertyMapper.countCost(property1);
 
         property1.setPropertyChargedate("2018-05");
 
-        float three1 = propertyMapper.countCostByNameStateDate(property1);
+        float three1 = propertyMapper.countCost(property1);
 
         dateCount1.setOne(one1);
         dateCount1.setTwo(two1);

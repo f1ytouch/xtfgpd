@@ -1,13 +1,14 @@
 package com.xtf.dao;
 import com.xtf.po.User;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserMapper {
 
 
     int deleteByPrimaryKey(Integer id);
-//
-//    int insert(User record);
-//
+
     int insertSelective(User record);
 
     User selectByPrimaryKey(Integer id);
@@ -18,8 +19,11 @@ public interface UserMapper {
 
     int updateByKeyW(User record);
 
+    String selectNumByName(String username);
 
+    long getUserCount();
 
-
+    List<User> selectUserByPage(@Param(value = "startPos") Integer startPos,
+                              @Param(value = "pageSize") Integer pageSize);
 
 }

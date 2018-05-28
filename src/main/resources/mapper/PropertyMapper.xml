@@ -185,13 +185,6 @@
     where property_num = #{propertyNum,jdbcType=VARCHAR}
   </select>
 
-    <select id="countCostByNameStateDate" resultType="float" parameterType="com.xtf.po.Property">
-    select SUM(property_sum) from property
-    where property_name = #{propertyName,jdbcType=VARCHAR}
-     and property_state = #{propertyState,jdbcType=VARCHAR}
-      and property_chargedate = #{propertyChargedate,jdbcType=VARCHAR}
-    </select>
-
   <select id="countSumByNameDate" parameterType="com.xtf.po.Property" resultType="float">
     select SUM(property_sum) from property
     where property_name = #{propertyName,jdbcType=VARCHAR}
@@ -214,6 +207,13 @@
     </where>
   </select>
 
+  <select id="countCost"  parameterType="com.xtf.po.Property" resultType="Float">
+    select sum(ifnull(property_sum,0)) from property
+    <where>
+      <include refid="where_pro"/>
+    </where>
+  </select>
+
   <sql id="where_pro">
 
       <if test="propertyName!=null">
@@ -226,7 +226,7 @@
           and property_num = #{propertyNum,jdbcType=VARCHAR}
         </if>
       <if test="propertyChargedate!=null">
-        property_chargedate = #{propertyChargedate,jdbcType=VARCHAR}
+        and property_chargedate = #{propertyChargedate,jdbcType=VARCHAR}
       </if>
   </sql>
 

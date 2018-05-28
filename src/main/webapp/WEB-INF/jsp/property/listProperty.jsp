@@ -21,11 +21,11 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do">业主信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/showHouseByPage.do">房产信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/showCarportByPage.do">车位信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
-				<li class="active"><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath }/showPropertyByPage.do">物业费管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/showSUM.do">统计汇总</a></li>
@@ -94,7 +94,7 @@
 						<button class="btn btn-sm btn-info" type="submit">
 							Search
 						</button>
-						<a href="${pageContext.request.contextPath }/user/addUser.do" class="btn btn-primary btn-sm">添加</a>
+						<a href="${pageContext.request.contextPath }/addProperty.do" class="btn btn-primary btn-sm">添加</a>
 					</div>
 				</form>
 		</div>

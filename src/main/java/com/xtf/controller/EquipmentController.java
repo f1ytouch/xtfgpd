@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -17,9 +18,9 @@ public class EquipmentController {
     private EquipmentService equipmentService;
 
     @RequestMapping("listEquipment.do")
-    public String listEquipment(Model model, Equipment equipment) {
-        List<Equipment> list = equipmentService.findEquipmetList(equipment);
-        model.addAttribute("equip",list);
+    public String listEquipment(HttpServletRequest request, Model model) {
+
+        equipmentService.showEquipmetByPage(request, model);
 
         return "/equipment/listEquipment";
     }

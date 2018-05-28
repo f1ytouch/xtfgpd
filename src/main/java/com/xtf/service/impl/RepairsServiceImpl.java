@@ -4,15 +4,19 @@ package com.xtf.service.impl;
 import com.xtf.po.Repairs;
 import com.xtf.dao.RepairsMapper;
 import com.xtf.service.RepairsService;
+import com.xtf.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RepairsServiceImpl implements RepairsService{
+
 
     @Autowired
     private RepairsMapper requestMapping;
@@ -64,10 +68,29 @@ public class RepairsServiceImpl implements RepairsService{
     }
 
     @Override
-    public List<Repairs> selectListRep(Repairs repairs) {
-        List<Repairs> list = new ArrayList<Repairs>();
-        list = requestMapping.selectListRep(repairs);
-        return list;
+    public List<Repairs> selectListRep(HttpServletRequest request, Model model) {
+        String pageNow = request.getParameter("pageNow");
+
+        Page page = null;
+
+        List<Repairs> list = new ArrayList<>();
+
+        int totalCount = (int) requestMapping.getCountRep();
+
+        if (pageNow != null) {
+            page = new Page(totalCount,Integer.parseInt(pageNow));
+
+            list = requestMapping.selectListRep(page.getStartPos(),page.getPageSize());
+        } else {
+            page = new Page(totalCount, 1);
+
+            list = requestMapping.selectListRep(page.getStartPos(),page.getPageSize());
+        }
+
+        model.addAttribute("page",page);
+
+        model.addAttribute("repairs",list);
+        return null;
     }
 
 

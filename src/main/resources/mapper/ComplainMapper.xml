@@ -140,13 +140,17 @@
     where complain_id = #{complainId,jdbcType=INTEGER}
   </update>
 
-  <select id="findListCompain" parameterType="com.xtf.po.Complain" resultMap="BaseResultMap">
-    select * from complain
+  <select id="findListCompain"  resultMap="BaseResultMap">
+    select * from complain limit #{startPos},#{pageSize}
   </select>
 
   <select id="selectBycomplainNum" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select * from complain
     where complain_num = #{complainNum,jdbcType=INTEGER}
+  </select>
+
+  <select id="getCountComplain" resultType="long">
+    select count(*) from complain
   </select>
 
 </mapper>

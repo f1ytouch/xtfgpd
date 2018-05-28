@@ -23,6 +23,9 @@ public class TallyController {
         return "/tally/showSUM";
     }
 
-
+    @RequestMapping("carportSUM.do")
+    public String carportSum() {
+        return "/tally/carportSUM";
+    }
 
 }

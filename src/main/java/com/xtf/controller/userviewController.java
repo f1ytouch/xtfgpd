@@ -1,5 +1,6 @@
 package com.xtf.controller;
 
+import com.xtf.dao.UserMapper;
 import com.xtf.po.*;
 import com.xtf.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -14,10 +17,7 @@ import java.util.List;
 public class userviewController {
 
     @Autowired
-    private WaterService waterService;
-
-    @Autowired
-    private EnergyService energyService;
+    private UserMapper userMapper;
 
     @Autowired
     private PropertyService propertyService;
@@ -28,18 +28,25 @@ public class userviewController {
     @Autowired
     private ComplainService complainService;
 
-    @RequestMapping("/tolistWater.do")
-    public String tolistWater() {
-        return "/userview/listWater";
-    }
-
-    @RequestMapping("/tolistEnergy.do")
-    public String tolistEnergy() {
-        return "/userview/listEnergy";
-    }
-
     @RequestMapping("/tolistPro.do")
-    public String tolistPro() {
+    public String tolistPro(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+
+        Admin admin = (Admin) session.getAttribute("admin");
+
+        String adminname = admin.getAdminname();
+
+        String num = userMapper.selectNumByName(adminname);
+
+        Property property = new Property();
+
+        property.setPropertyNum(num);
+
+        List<Property> list = propertyService.selectListPro(property);
+
+        model.addAttribute("pro",list);
+
         return "/userview/listProperty";
     }
 
@@ -53,19 +60,6 @@ public class userviewController {
         return "/userview/listComplain";
     }
 
-    @RequestMapping("/selectByWaterNum.do")
-    public String selectByWaterNum(Model model, Integer waterNum) throws Exception {
-        List<Water> list = waterService.selectByWaterNum(waterNum);
-        model.addAttribute("water",list);
-        return "/userview/listWater";
-    }
-
-    @RequestMapping("/selectByEnergyNum.do")
-    public String selectByEnergyNum(Model model, Integer energyNum) throws Exception {
-        List<Energy> list = energyService.selectByEnergyNum(energyNum);
-        model.addAttribute("energy", list);
-        return "/userview/listEnergy";
-    }
 
     @RequestMapping("/selectByProNum.do")
     public String selectByProNum(Model model, String propertyNum) throws Exception {

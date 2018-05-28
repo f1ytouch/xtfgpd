@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +19,8 @@ public class RepairsController {
     private RepairsService repairsService;
 
     @RequestMapping("/listRepairs.do")
-    public String listRepairs(Model model, Repairs repairs) throws Exception {
-        List<Repairs> list = new ArrayList<>();
-        list = repairsService.selectListRep(repairs);
-        model.addAttribute("repairs", list);
+    public String listRepairs(Model model, HttpServletRequest request) throws Exception {
+        repairsService.selectListRep(request, model);
         return "/repairs/listRepairs";
     }
 

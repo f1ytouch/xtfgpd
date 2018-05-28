@@ -21,11 +21,11 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="${pageContext.request.contextPath }/user/listUser.do">业主信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/user/showUserByPage.do">业主信息管理</a></li>
 				<li class="active"><a href="${pageContext.request.contextPath }/showHouseByPage.do">房产信息管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listCarport.do">车位信息管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/showCarportByPage.do">车位信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listEquipment.do">公共设备管理</a></li>
-				<li><a href="${pageContext.request.contextPath }/listProperty.do">物业费管理</a></li>
+				<li><a href="${pageContext.request.contextPath }/showPropertyByPage.do">物业费管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listRepairs.do">维修记录管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/listComplain.do">投诉信息管理</a></li>
 				<li><a href="${pageContext.request.contextPath }/showSUM.do">统计汇总</a></li>
@@ -111,47 +111,47 @@
 
         <div class="row">
 
-            <!-- 分页文字信息 -->
-            <div class="col-sm-6">
-                当前${page.pageNow}页,总${page.totalPageCount}页,总${page.totalCount}条记录
-            </div>
-            <!-- 分页条信息 -->
-            <div class="col-sm-6">
+		<!-- 分页文字信息 -->
+		<div class="col-sm-6">
+			当前${page.pageNow}页,总${page.totalPageCount}页,总${page.totalCount}条记录
+		</div>
+		<!-- 分页条信息 -->
+		<div class="col-sm-6">
 
-                <ul class="pagination">
-                    <li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=1">首页</a></li>
-					<c:choose>
-						<c:when test="${page.pageNow - 1 > 0}">
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow - 1}">上一页</a></li>
-						</c:when>
-						<c:when test="${page.pageNow - 1 <= 0}">
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=1">上一页</a></li>
-						</c:when>
-					</c:choose>
-					<c:choose>
-						<c:when test="${page.totalPageCount==0}">
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow}">下一页</a></li>
-						</c:when>
-						<c:when test="${page.pageNow + 1 < page.totalPageCount}">
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow + 1}">下一页</a></li>
-						</c:when>
-						<c:when test="${page.pageNow + 1 >= page.totalPageCount}">
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.totalPageCount}">下一页</a></li>
-						</c:when>
-					</c:choose>
+			<ul class="pagination">
+				<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=1">首页</a></li>
+				<c:choose>
+					<c:when test="${page.pageNow - 1 > 0}">
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow - 1}">上一页</a></li>
+					</c:when>
+					<c:when test="${page.pageNow - 1 <= 0}">
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=1">上一页</a></li>
+					</c:when>
+				</c:choose>
+				<c:choose>
+					<c:when test="${page.totalPageCount==0}">
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow}">下一页</a></li>
+					</c:when>
+					<c:when test="${page.pageNow + 1 < page.totalPageCount}">
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow + 1}">下一页</a></li>
+					</c:when>
+					<c:when test="${page.pageNow + 1 >= page.totalPageCount}">
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.totalPageCount}">下一页</a></li>
+					</c:when>
+				</c:choose>
 
-					<c:choose>
-						<c:when test="${page.totalPageCount==0}">
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow}">尾页</a></li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.totalPageCount}">尾页</a></li>
-						</c:otherwise>
-					</c:choose>
-                </ul>
+				<c:choose>
+					<c:when test="${page.totalPageCount==0}">
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.pageNow}">尾页</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="${pageContext.request.contextPath }/showHouseByPage.do?pageNow=${page.totalPageCount}">尾页</a></li>
+					</c:otherwise>
+				</c:choose>
+			</ul>
 
-            </div>
-        </div>
+		</div>
+	</div>
 	</div>
 
 </body>
